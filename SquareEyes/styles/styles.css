@@ -1,5 +1,11 @@
-body {
-  background: #a0a0fd;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: -webkit-xxx-large;
+#user-dropdown {
+  display: none;
+}
+
+#user-icon {
+  display: none;
+}
+
+#user-icon:checked ~ #user-dropdown {
+  display: block;
 }

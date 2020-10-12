@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SquareEyes | Home</title>
-    <meta name="description" content="Watch films or submit your own." />
+    <meta charset="UTF-8" />
+    <title>Home - SquareEyes</title>
+    <meta description="Watch films or submit your own." />
+    <meta author="Torbjørn Haukås" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/ea2405e1e7.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
-      <pre>LOGO IMAGE</pre>
-      <nav>
+      <a href="./index.html">Logo</a>
+      <nav class="topnav">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="index.html">Home</a></li>
           <li><a href="film.html">Film</a></li>
           <li><a href="categories.html">Categories</a></li>
           <li><a href="latest.html">Latest</a></li>
@@ -18,82 +25,62 @@
         <button>Search</button>
         <button>Inbox</button>
         <button>Sign In</button>
-        <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
-          <div class="dropdown-content">
-            <a href="account.html">Account</a>
-            <a href="account.html">Library</a>
-            <a href="account.html">Watchlist</a>
-          </div>
-        </div>
+        <label for="user-icon">
+          <i class="fas fa-user"></i>
+        </label>
+        <input type="checkbox" id="user-icon" />
+        <ul id="user-dropdown">
+          <li><a href="account.html">Account</a></li>
+          <li><a href="account.html">Library</a></li>
+          <li><a href="account.html">Watchlist</a></li>
+        </ul>
       </nav>
     </header>
     <main>
       <section>
-        <h1 style="text-align: center">Connecting Film-Lovers</h1>
-        <p style="text-align: center">
+        <h1>Connecting Film-Lovers</h1>
+        <p>
           SquareEyes allows filmmakers to share their creativity with audiences
           all over the world
         </p>
-        <p style="text-align: center">
-          Enjoy our wide selection of films, or submit your own
-        </p>
+        <p>Enjoy our wide selection of films, or submit your own</p>
         <button>Become a Member</button>
         <button>Submit Your Project</button>
-        <img
-          src="images/Yall-Got-Any-More-Of-That.jpg"
-          alt="Flere slike oppgaver takk"
-        />
       </section>
       <section>
-        <h2 style="text-align: center">Browse our Library</h2>
-        <button>Dramas</button>
-        <button>Documentaries</button>
-        <button>Action Films</button>
-        <button>Comedies</button>
-        <button>Animations</button>
-        <button>Art Films</button>
-        <button>Short Films</button>
-        <button>Staff Picks</button>
+        <h2>Browse our Library</h2>
+        <a href="films.html">Dramas</a>
+        <a href="films.html">Documentaries</a>
+        <a href="films.html">Action Films</a>
+        <a href="films.html">Comedies</a>
+        <a href="films.html">Animations</a>
+        <a href="films.html">Art Films</a>
+        <a href="films.html">Short Films</a>
+        <a href="films.html">Staff Picks</a>
       </section>
       <section>
-        <h2 style="text-align: right">Share your Passion.</h2>
-        <p style="text-align: right">
-          Publish your work to thousands of film-enthusiasts
-        </p>
-        <p style="text-align: right">
-          Leech off of thousands of gullible couch-potatoes
-        </p>
-        <p style="text-align: right">Together we will rule the world</p>
-        <a href="pricing.html" style="float: right">Pricing and Payment ></a>
+        <h2>Share your Passion.</h2>
+        <p>Publish your work to thousands of film-enthusiasts</p>
+        <p>Leech off of thousands of gullible couch-potatoes</p>
+        <p>Together we will rule the world</p>
+        <a href="pricing.html">Pricing and Payment ></a>
       </section>
       <section>
-        <h2 style="text-align: left">Share your Passion.</h2>
-        <p style="text-align: left">
-          Publish your work to thousands of film-enthusiasts
-        </p>
-        <p style="text-align: left">
-          Leech off of thousands of gullible couch-potatoes
-        </p>
-        <p style="text-align: left">Together we will rule the world</p>
+        <h2>Share your Passion.</h2>
+        <p>Publish your work to thousands of film-enthusiasts</p>
+        <p>Leech off of thousands of gullible couch-potatoes</p>
+        <p>Together we will rule the world</p>
         <p><a href="pricing.html">Learn More &gt;</a></p>
       </section>
     </main>
     <footer>
-      <p>
-        <a href="termsofservice.html" style="float: left">Terms of Service</a>
-        &nbsp; | &nbsp;
-        <a href="privacypolicy.html">Privacy Policy</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="about.html">About Us</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="creatorfaq.html">Filmmakers FAQ</a>
-        <a href="contact.html" style="float: right">Contact Us</a>
-      </p>
+      <ul>
+        <li><a href="termsofservice.html">Terms of Service</a></li>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="creatorfaq.html">Filmmakers FAQ</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </footer>
   </body>
 </html>
