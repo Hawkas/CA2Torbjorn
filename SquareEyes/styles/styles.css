@@ -58,10 +58,15 @@ header {
   overflow: visible;
 }
 
+.topnav {
+  margin: 0;
+}
+
 .logo img {
   max-width: 100%;
   height: auto;
   float: left;
+  margin: 0;
 }
 ul.navleft a {
   float: left;
