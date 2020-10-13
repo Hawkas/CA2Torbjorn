@@ -1,11 +1,85 @@
-#user-dropdown {
-  display: none;
+html {
+  font-size: 62.5%; /* 62.5% of 16px = 10px */
+  box-sizing: border-box;
+  background-color: #212120;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 5.5rem; /* 55px */
+  font-weight: 700; /* bold */
+  letter-spacing: 0.005em; /* 5 Adobe XD letter spacing units */
+}
+
+h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 3.5rem; /* 35px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0.005em; /* 5 Adobe XD letter spacing units */
+}
+p {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 2rem; /* 20px */
+  font-weight: 400; /* Regular */
+  line-height: 1.6;
+}
+
+a {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 2.2rem; /* 22px */
+  font-weight: 400; /* Regular */
+  text-decoration: none;
+}
+header {
+  margin: 0;
+  padding: 16px 91px 10px 91px;
+  height: 104px;
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: #141414;
+  overflow: visible;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+  float: left;
+}
+ul.navleft a {
+  float: left;
+  padding: 5.3rem 1.5rem 2.3rem 1.5rem;
+  text-align: center;
+  display: block;
+}
+
+#user-dropdown,
 #user-icon {
   display: none;
 }
 
 #user-icon:checked ~ #user-dropdown {
   display: block;
+}
+
+.fa-user {
+  font-size: 2.2rem;
+  color: white;
 }
