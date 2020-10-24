@@ -1,90 +1,101 @@
-html {
-  font-size: 62.5%; /* 62.5% of 16px = 10px */
+/* ------------------------------- */
+/* --------Universal Fixes-------- */
+/* ------------------------------- */
+
+* {
   box-sizing: border-box;
-  background-color: #212120;
 }
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+:root {
+  --black: #212120;
+  --blacker: #141414;
+  --transblacker: rgba(20, 20, 20, 0.8);
+  --blue: #3da4e0;
+  --red: #ff3137;
 }
-
 body {
+  background-color: var(--black);
   margin: 0;
-  padding: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  color: white;
 }
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-h1 {
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 5.5rem; /* 55px */
-  font-weight: 700; /* bold */
-  letter-spacing: 0.005em; /* 5 Adobe XD letter spacing units */
-}
-
+h1,
 h2 {
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 3.5rem; /* 35px */
-  font-weight: 600; /* SemiBold */
-  letter-spacing: 0.005em; /* 5 Adobe XD letter spacing units */
+  font-family: "Montserrat", Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 55px;
+  color: white;
 }
+h3 {
+  font-family: "Montserrat", Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 35px;
+  color: white;
+}
+
 p {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 2rem; /* 20px */
-  font-weight: 400; /* Regular */
+  font-weight: 400;
+  font-size: 20px;
   line-height: 1.6;
 }
 
 a {
-  font-family: "Roboto", Arial, sans-serif;
-  font-size: 2.2rem; /* 22px */
-  font-weight: 400; /* Regular */
   text-decoration: none;
-}
-header {
-  margin: 0;
-  padding: 16px 91px 10px 91px;
-  height: 104px;
-  position: sticky;
-  top: 0;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  background-color: #141414;
-  overflow: visible;
+  color: white;
 }
 
-.topnav {
-  margin: 0;
+ul {
+  list-style-type: none;
 }
 
-.logo img {
-  max-width: 100%;
+/* ------------------------------- */
+/*        Universal Fixes End      */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*               Header            */
+/* ------------------------------- */
+header.tinyheader {
+  background-color: var(--transblacker);
+  display: grid;
+  grid-template-rows: 75px;
+  grid-template-columns: 170px 1fr 0.5fr 0.5fr;
+  grid-template-areas: "topleft . search login";
+  gap: 0 15px;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  padding: 0 4%;
+}
+.topleft {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  align-content: center;
+  grid-area: topleft;
+  width: 100%;
+}
+
+.logo {
+  width: 108px;
   height: auto;
-  float: left;
-  margin: 0;
+  max-height: 77px;
+  max-width: 179px;
 }
-ul.navleft a {
-  float: left;
-  padding: 5.3rem 1.5rem 2.3rem 1.5rem;
-  text-align: center;
-  display: block;
-}
-
-#user-dropdown,
-#user-icon {
+#dropdown-menu {
   display: none;
 }
-
-#user-icon:checked ~ #user-dropdown {
-  display: block;
-}
-
-.fa-user {
-  font-size: 2.2rem;
+#search {
+  grid-area: search;
+  align-self: center;
+  background-color: var(--black);
   color: white;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 300;
+  height: 30px;
+}
+.hamburger {
+  font-size: 30px;
+  height: 46px;
 }

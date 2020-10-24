@@ -1,92 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <title>Home - SquareEyes</title>
-    <meta description="Watch films or submit your own." />
+    <meta
+      name="description"
+      content="SquareEyes is a video streaming website for independent filmmakers to stream their videos on a pay-per-view basis"
+    />
     <meta author="Torbjørn Haukås" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <script
       src="https://kit.fontawesome.com/ea2405e1e7.js"
       crossorigin="anonymous"
     ></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <header>
-      <h1 class="logo">
-        <a href="index.html"><img src="images/squarelogo.png" alt="SquareEyes Logo"></a>
-      </h1>
-      <nav class="topnav">
-          <ul class="navleft">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="film.html">Film</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="latest.html">Latest</a></li>
-          </ul>
-          <form class="searchbox" action="search.php">
-            <input type="text" name="search" placeholder="Titles, people, genres">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </form>
-          <button>Inbox</button>
-          <button>Sign In</button>
-            <label for="user-icon">
-              <i class="fas fa-user"></i>
-            </label>
-            <input type="checkbox" id="user-icon" />
-            <ul id="user-dropdown">
-              <li><a href="account.html">Account</a></li>
-              <li><a href="account.html">Library</a></li>
-              <li><a href="account.html">Watchlist</a></li>
-            </ul>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h1>Connecting Film-Lovers</h1>
-        <p>
-          SquareEyes allows filmmakers to share their creativity with audiences
-          all over the world
-        </p>
-        <p>Enjoy our wide selection of films, or submit your own</p>
-        <button>Become a Member</button>
-        <button>Submit Your Project</button>
-      </section>
-      <section>
-        <h2>Browse our Library</h2>
-        <a href="films.html">Dramas</a>
-        <a href="films.html">Documentaries</a>
-        <a href="films.html">Action Films</a>
-        <a href="films.html">Comedies</a>
-        <a href="films.html">Animations</a>
-        <a href="films.html">Art Films</a>
-        <a href="films.html">Short Films</a>
-        <a href="films.html">Staff Picks</a>
-      </section>
-      <section>
-        <h1>Share your Passion.</h1>
-        <p>Publish your work to thousands of film-enthusiasts</p>
-        <p>Leech off of thousands of gullible couch-potatoes</p>
-        <p>Together we will rule the world</p>
-        <a href="pricing.html">Pricing and Payment ></a>
-      </section>
-      <section>
-        <h1>Share your Passion.</h1>
-        <p>Publish your work to thousands of film-enthusiasts</p>
-        <p>Leech off of thousands of gullible couch-potatoes</p>
-        <p>Together we will rule the world</p>
-        <p><a href="pricing.html">Learn More &gt;</a></p>
-      </section>
-    </main>
-    <footer>
-      <ul>
-        <li><a href="termsofservice.html">Terms of Service</a></li>
-        <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="creatorfaq.html">Filmmakers FAQ</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </footer>
-  </body>
+  <header class="tinyheader">
+    <div class="topleft">
+      <label class="hamburger" for="dropdown-menu">
+        <i class="fas fa-bars"></i>
+      </label>
+      <img class="logo" src="images/squarelogo.png" alt="SquareEyes Logo" />
+    </div>
+    <input id="dropdown-menu" type="checkbox" />
+    <input type="text" id="search" name="search-bar" placeholder="Search" />
+  </header>
+  <nav class="dropdown"></nav>
+  <main></main>
+  <aside></aside>
+  <footer></footer>
 </html>
