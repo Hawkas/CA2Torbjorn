@@ -1,42 +1,51 @@
 /* ------------------------------- */
 /* --------Universal Fixes-------- */
 /* ------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 
-* {
-  box-sizing: border-box;
+html {
+  box-sizing: border-box; /* Universal Border Box with inheritance part 1 */
+  font-size: 62.5% !important; /* for easier math with 10px assuming a 16px default size */
 }
+*,
+*:before, /* Universal Border Box with inheritance part 2*/
+*:after {
+  box-sizing: inherit;
+}
+
 :root {
   --black: #212120;
   --blacker: #141414;
   --transblacker: rgba(20, 20, 20, 0.8);
   --blue: #3da4e0;
   --red: #ff3137;
+  --transwhite: rgba(255, 255, 255, 0.6);
+  --roboto: "Roboto", Arial, sans-serif;
+  --montserrat: "Montserrat", Verdana, sans-serif;
 }
 body {
   background-color: var(--black);
-  margin: 0;
-  font-family: "Roboto", Arial, sans-serif;
+  margin: 0; /* to prevent scrollbars */
+  font-family: var(--roboto);
   font-weight: 400;
+  font-size: 2rem;
   color: white;
 }
 h1,
 h2 {
-  font-family: "Montserrat", Verdana, sans-serif;
+  font-family: var(--montserrat);
   font-weight: 700;
-  font-size: 55px;
+  font-size: 5.5rem;
   color: white;
 }
 h3 {
-  font-family: "Montserrat", Verdana, sans-serif;
+  font-family: var(--montserrat);
   font-weight: 600;
-  font-size: 35px;
+  font-size: 3.5rem;
   color: white;
 }
 
 p {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
   line-height: 1.6;
 }
 
@@ -48,6 +57,23 @@ a {
 ul {
   list-style-type: none;
 }
+.redbutton {
+  background-color: var(--red);
+  border-radius: 3px;
+  box-shadow: 0 3px 0 rgba(255, 49, 55, 0.72);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.11rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.redbutton:hover {
+  background-color: white;
+  color: var(--red);
+  border: 1px solid var(--red);
+  transform: translateY(3px); /* to compensate for loss of box-shadow */
+  box-shadow: none;
+}
 
 /* ------------------------------- */
 /*        Universal Fixes End      */
@@ -56,46 +82,197 @@ ul {
 /* ------------------------------- */
 /*               Header            */
 /* ------------------------------- */
-header.tinyheader {
-  background-color: var(--transblacker);
+
+header.header-container {
   display: grid;
-  grid-template-rows: 75px;
-  grid-template-columns: 170px 1fr 0.5fr 0.5fr;
-  grid-template-areas: "topleft . search login";
-  gap: 0 15px;
-  justify-content: space-between;
+  grid: 75px auto / 100%;
+  grid-template-areas:
+    "topbar"
+    "......";
+  gap: 0px 15px;
+  margin-top: -2px;
+  position: fixed; /*  I have to use fixed to make the dropdown simply overlap rather than move
+                       elements out of the way when activated at the top of the page */
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-around;
   justify-items: center;
   align-items: center;
-  padding: 0 4%;
+  align-content: stretch;
+  padding: 0;
 }
-.topleft {
-  display: flex;
-  justify-content: space-around;
-  align-items: baseline;
-  align-content: center;
-  grid-area: topleft;
+
+.headerblock {
+  /* To occupy header space so I can pretend it's sticky */
+  height: 75px;
   width: 100%;
 }
 
-.logo {
-  width: 108px;
-  height: auto;
-  max-height: 77px;
-  max-width: 179px;
+.topbar {
+  background-color: var(--transblacker);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  grid-area: topbar;
+  padding: 10px 14px;
+  height: 75px;
+  width: 100%;
+  border-bottom: 2px solid var(--transwhite);
 }
-#dropdown-menu {
+
+.logo {
+  width: auto;
+  margin-left: 30px;
+  height: 55px;
+}
+
+.hamburger {
+  font-size: 46px;
+  height: 46px;
+}
+
+i.fas.fa-bars {
+  padding: 0;
+}
+
+a.signin {
+  width: 90px;
+  padding: 5px 0;
+  font-size: 16px;
+  margin-bottom: 3px; /* Box-shadow adjustment */
+  margin-left: auto;
+}
+
+/*------------ NAV STUFF ------------------*/
+/* SEARCH */
+.searchbar input {
+  font-family: var(--roboto);
+  background-color: var(--black);
+  border: none;
+  border-radius: 3px;
+  padding-left: 5px;
+  width: 100px;
+  height: 32px;
+
+  color: white;
+  letter-spacing: 0.11rem;
+}
+/* Placeholder text will not inherit font-family, so I'm forcing it to */
+.searchbar input::placeholder {
+  font-family: var(--roboto);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.56);
+  letter-spacing: 0.008rem;
+}
+div.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #707070;
+  border-radius: 3px;
+  width: 143px;
+  height: 34px;
+  margin: 14px auto;
+  background-color: var(--black);
+}
+.searchbar a {
+  font-size: 20px;
+  color: #707070;
+  background-color: var(--blacker);
+  border-left: 1pt solid #707070;
+  border-radius: 0 3px 3px 0;
+  padding: 5px 10px;
+  align-self: stretch;
+}
+.searchbar a:hover {
+  color: white;
+}
+/* SEARCH END */
+
+/* Checkbox hacks + container styling */
+#dropdown-menu,
+#accountdrop {
   display: none;
 }
-#search {
-  grid-area: search;
-  align-self: center;
-  background-color: var(--black);
-  color: white;
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 300;
-  height: 30px;
+nav.dropdown,
+.accountnav {
+  display: none;
 }
-.hamburger {
-  font-size: 30px;
-  height: 46px;
+
+#dropdown-menu:checked ~ nav.dropdown {
+  display: block;
+  grid-area: 2;
+  justify-self: start;
+  padding: 0;
+  background-color: var(--blacker);
+  border-radius: 0 0 3px 0;
+}
+#dropdown-menu:checked ~ .topbar {
+  background-color: var(--blacker);
+}
+.dropdown hr {
+  border: 1px solid gray;
+  opacity: 0.4;
+}
+
+ul.navbuttons,
+#accountdrop:checked ~ .accountnav {
+  display: flex;
+  flex-flow: column;
+  padding-left: 0;
+  margin-bottom: 5px;
+}
+#accountdrop:checked ~ ul.accountnav {
+  margin-bottom: 20px;
+}
+ul.navbuttons {
+  margin-top: 20px;
+}
+/* Checkbox hacks + container styling END */
+
+/* Navigation buttons styling */
+.usericon {
+  display: flex;
+  flex-flow: column wrap;
+  height: 20px;
+  width: 100%;
+  align-content: center;
+}
+
+.fas.fa-user {
+  margin-right: 10px;
+}
+.fas.fa-sort-down {
+  margin-bottom: 20px;
+}
+
+ul.navbuttons li {
+  background-color: var(--blacker);
+}
+
+ul.navbuttons > li:first-child > a,
+ul.accountnav > li:first-child > a {
+  border-top: 0.5px solid var(--black);
+}
+
+ul.navbuttons a,
+ul.accountnav a {
+  display: block;
+  color: var(--transwhite);
+  width: 160px;
+  padding: 10px 0 10px 40px;
+  border-bottom: 0.5px solid var(--black);
+}
+
+ul.navbuttons a:hover,
+ul.accountnav a:hover {
+  color: white;
+  /* box-shadow: 3px 0 0 white; */
+  border-left: 3px solid white;
+}
+ul.navbuttons a.active {
+  color: var(--blacker);
+  background-color: var(--transwhite);
+  border-left: none;
 }
