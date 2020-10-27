@@ -67,7 +67,8 @@ ul {
   text-align: center;
   white-space: nowrap;
 }
-.redbutton:hover {
+.redbutton:hover,
+.redbutton:focus {
   background-color: white;
   color: var(--red);
   border: 1px solid var(--red);
@@ -83,7 +84,7 @@ ul {
 /*               Header            */
 /* ------------------------------- */
 
-header.header-container {
+nav.nav-container {
   display: grid;
   grid: 75px auto / 100%;
   grid-template-areas:
@@ -91,7 +92,7 @@ header.header-container {
     "......";
   gap: 0px 15px;
   margin-top: -2px;
-  position: fixed; /*  I have to use fixed to make the dropdown simply overlap rather than move
+  position: fixed; /*  I decided to use fixed to make the dropdown simply overlap rather than move
                        elements out of the way when activated at the top of the page */
   top: 0;
   left: 0;
@@ -104,13 +105,13 @@ header.header-container {
 }
 
 .headerblock {
-  /* To occupy header space so I can pretend it's sticky */
+  /* To occupy header space so I can be lazy*/
   height: 75px;
   width: 100%;
 }
 
 .topbar {
-  background-color: var(--transblacker);
+  background-color: var(--blacker);
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -121,15 +122,21 @@ header.header-container {
   border-bottom: 2px solid var(--transwhite);
 }
 
+.topbar .searchbar {
+  display: none;
+}
+
 .logo {
   width: auto;
   margin-left: 30px;
+  margin-bottom: -5px;
   height: 55px;
 }
 
 .hamburger {
   font-size: 46px;
   height: 46px;
+  cursor: pointer;
 }
 
 i.fas.fa-bars {
@@ -152,11 +159,11 @@ a.signin {
   border: none;
   border-radius: 3px;
   padding-left: 5px;
-  width: 100px;
-  height: 32px;
+  width: 86px;
+  height: 30px;
 
   color: white;
-  letter-spacing: 0.11rem;
+  letter-spacing: 0.008rem;
 }
 /* Placeholder text will not inherit font-family, so I'm forcing it to */
 .searchbar input::placeholder {
@@ -171,13 +178,13 @@ div.searchbar {
   align-items: center;
   border: 1px solid #707070;
   border-radius: 3px;
-  width: 143px;
-  height: 34px;
-  margin: 14px auto;
+  width: 129px;
+  height: 32px;
+  margin: 14px 0 0 14px;
   background-color: var(--black);
 }
 .searchbar a {
-  font-size: 20px;
+  font-size: 18px;
   color: #707070;
   background-color: var(--blacker);
   border-left: 1pt solid #707070;
@@ -185,31 +192,39 @@ div.searchbar {
   padding: 5px 10px;
   align-self: stretch;
 }
-.searchbar a:hover {
+.searchbar a:hover,
+.searchbar a:focus {
   color: white;
 }
 /* SEARCH END */
 
 /* Checkbox hacks + container styling */
 #dropdown-menu,
-#accountdrop {
+#accountdrop,
+#accountdroptop {
   display: none;
 }
-nav.dropdown,
+div.dropdown,
 .accountnav {
   display: none;
 }
 
-#dropdown-menu:checked ~ nav.dropdown {
+#dropdown-menu:checked ~ div.dropdown {
   display: block;
   grid-area: 2;
   justify-self: start;
   padding: 0;
   background-color: var(--blacker);
   border-radius: 0 0 3px 0;
+  height: 81.25vh; /* To ensure the nav menu is scrollable if there is insufficient height */
+  max-height: 492px; /* To ensure it doesn't grow beyond what it actually contains */
+  overflow-y: scroll;
 }
+
 #dropdown-menu:checked ~ .topbar {
-  background-color: var(--blacker);
+  background-color: var(
+    --blacker
+  ); /* Removing transparency on the top-bar when nav menu is open, for consistency, as a transparent dropdown isn't very nice, and background-filter doesn't work on all browsers yet */
 }
 .dropdown hr {
   border: 1px solid gray;
@@ -217,46 +232,63 @@ nav.dropdown,
 }
 
 ul.navbuttons,
-#accountdrop:checked ~ .accountnav {
+#accountdrop:checked ~ .accountnav,
+#accountdroptop:checked ~ .accountnav {
   display: flex;
   flex-flow: column;
   padding-left: 0;
   margin-bottom: 5px;
 }
-#accountdrop:checked ~ ul.accountnav {
+ul.topnav {
+  display: none;
+}
+ul.accountnav {
   margin-bottom: 20px;
 }
-ul.navbuttons {
+ul.dropnav {
   margin-top: 20px;
+}
+
+/* making the arrow flip when account menu is open */
+.fas.fa-angle-up {
+  display: none;
+}
+#accountdrop:checked ~ .usersettings > .fas.fa-angle-up,
+#accountdroptop:checked ~ .usersettings > .fas.fa-angle-up {
+  display: block;
+}
+#accountdrop:checked ~ .usersettings > .fas.fa-angle-down,
+#accountdroptop:checked ~ .usersettings > .fas.fa-angle-down {
+  display: none;
 }
 /* Checkbox hacks + container styling END */
 
 /* Navigation buttons styling */
-.usericon {
+.usersettings {
   display: flex;
-  flex-flow: column wrap;
-  height: 20px;
+  flex-flow: row;
+  height: 32px;
   width: 100%;
-  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 
 .fas.fa-user {
   margin-right: 10px;
-}
-.fas.fa-sort-down {
-  margin-bottom: 20px;
-}
-
-ul.navbuttons li {
-  background-color: var(--blacker);
+  font-size: 20px;
+  color: var(--black);
+  background-color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
 }
 
-ul.navbuttons > li:first-child > a,
+.dropnav > li:first-child > a,
 ul.accountnav > li:first-child > a {
   border-top: 0.5px solid var(--black);
 }
 
-ul.navbuttons a,
+.dropnav a,
 ul.accountnav a {
   display: block;
   color: var(--transwhite);
@@ -264,15 +296,274 @@ ul.accountnav a {
   padding: 10px 0 10px 40px;
   border-bottom: 0.5px solid var(--black);
 }
+.topnav a {
+  color: var(--transwhite);
+  padding: 35px 15px 15px 15px;
+}
 
-ul.navbuttons a:hover,
-ul.accountnav a:hover {
+.dropnav a:hover,
+.dropnav a:focus,
+ul.accountnav a:hover,
+ul.accountnav a:focus {
   color: white;
-  /* box-shadow: 3px 0 0 white; */
   border-left: 3px solid white;
+}
+.topnav a:hover,
+.topnav a:focus {
+  color: white;
+  background-color: var(--black);
+  box-shadow: 0 2px 0 white;
 }
 ul.navbuttons a.active {
   color: var(--blacker);
   background-color: var(--transwhite);
   border-left: none;
+  box-shadow: none;
 }
+
+/* ------------------------------- */
+/*            Header END           */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            Footer               */
+/* ------------------------------- */
+/* ------------------------------- */
+/*            Footer END           */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*       PAGE SPECIFIC CONTENT     */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*               HOME              */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            HOME END             */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            FILMS                */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            FILMS END            */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SEARCH               */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SEARCH END           */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            ACCOUNT              */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            ACCOUNT END          */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SIGNUP 4WHAT         */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SIGNUP 4WHAT END     */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SIGNUP REG           */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SIGNUP REG END       */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SIGNUP FILM          */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SIGNUP FILM END      */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            LOGIN                */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            LOGIN END            */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/* MEDIA QUERIES LANDSCAPE         */
+/* ------------------------------- */
+
+@media only screen and (min-device-width: 500px) and (max-device-width: 1023px) {
+  /*-------- HEADER --------*/
+
+  /* This is me being pedantic and allowing all the main navigation buttons to be visible without having to scroll in landscape on smartphones. Not using orientation: landscape, as I set the breakpoint to where these changes would fit regardless */
+
+  .topbar .searchbar {
+    /* Enabling searchbar in the topbar to clean up space in dropdown, making all nav buttons visible on 360px height and above */
+    display: flex;
+    margin-left: auto; /* Also moving it to the right side with the sign-in button */
+  }
+  .dropdown .searchbar {
+    /* disabling search in the dropdown */
+    display: none;
+  }
+  a.signin {
+    margin-left: 20px;
+  }
+  /*-------- HEADER END-----*/
+}
+
+/*-------- FOOTER --------*/
+/*-------- FOOTER END-----*/
+
+/*-------- HOME --------*/
+/*-------- HOME END-----*/
+
+/*-------- FILMS --------*/
+/*-------- FILMS END-----*/
+
+/*-------- SEARCH --------*/
+/*-------- SEARCH END-----*/
+
+/*-------- SIGNUP 1-3 ----*/
+/*-------- SIGNUP 1-3 END-*/
+
+/*-------- LOGIN --------*/
+/*-------- LOGIN END-----*/
+
+/*-------- ACCOUNT --------*/
+/*-------- ACCOUNT END-----*/
+
+/* ------------------------------- */
+/*  MEDIA QUERIES LANDSCAPE END    */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*      MEDIA QUERIES 768px        */
+/* ------------------------------- */
+@media only screen and (min-device-width: 1024px) {
+} /*-------- HEADER --------*/
+/* Here I want the nav buttons to appear on the top-bar*/
+ul.topnav {
+  display: flex;
+  flex-flow: row;
+  margin-left: 60px;
+}
+/*-------- HEADER END-----*/
+
+/*-------- FOOTER --------*/
+/*-------- FOOTER END-----*/
+
+/*-------- HOME --------*/
+/*-------- HOME END-----*/
+
+/*-------- FILMS --------*/
+/*-------- FILMS END-----*/
+
+/*-------- SEARCH --------*/
+/*-------- SEARCH END-----*/
+
+/*-------- SIGNUP 1-3 ----*/
+/*-------- SIGNUP 1-3 END-*/
+
+/*-------- LOGIN --------*/
+/*-------- LOGIN END-----*/
+
+/*-------- ACCOUNT --------*/
+/*-------- ACCOUNT END-----*/
+
+/* ------------------------------- */
+/*      MEDIA QUERIES 768px END    */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*     MEDIA QUERIES DESKTOP       */
+/* ------------------------------- */
+
+/*-------- HEADER --------*/
+/*-------- HEADER END-----*/
+
+/*-------- FOOTER --------*/
+/*-------- FOOTER END-----*/
+
+/*-------- HOME --------*/
+/*-------- HOME END-----*/
+
+/*-------- FILMS --------*/
+/*-------- FILMS END-----*/
+
+/*-------- SEARCH --------*/
+/*-------- SEARCH END-----*/
+
+/*-------- SIGNUP 1-3 ----*/
+/*-------- SIGNUP 1-3 END-*/
+
+/*-------- LOGIN --------*/
+/*-------- LOGIN END-----*/
+
+/*-------- ACCOUNT --------*/
+/*-------- ACCOUNT END-----*/
+
+/* ------------------------------- */
+/*    MEDIA QUERIES DESKTOP END    */
+/* ------------------------------- */
