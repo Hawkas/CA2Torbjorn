@@ -149,12 +149,6 @@ hr.nav-hide {
   grid-area: nav;
 }
 
-.headerblock {
-  /* To occupy header space so I can be lazy*/
-  height: 80px;
-  width: 100%;
-}
-
 .header-backdrop {
   background-color: var(--blacker);
   grid-column: left / right;
