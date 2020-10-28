@@ -474,11 +474,11 @@ ul.accountnav > li:first-child > a {
   padding: 0;
   width: 100%;
 }
-.browseimage.dramas {
-  background-image: url(../images/angryman.jpg);
-}
 .browseimage {
-  display: block;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
   margin-top: 8.33;
   margin-bottom: 8.33;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -489,8 +489,53 @@ ul.accountnav > li:first-child > a {
   background-color: var(--blacker);
   background-size: cover;
   background-position: center;
+  transition: transform 0.5s ease-in;
 }
-
+.browseimage > span {
+  margin-left: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 0px var(--black);
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+.browseimage.dramas {
+  background-image: url(../images/films/angryman.jpg);
+  background-position: 50% 15%;
+}
+.browseimage.docu {
+  background-image: url(../images/films/turtle.jpg);
+  background-position: right bottom;
+}
+.browseimage.action {
+  background-image: url(../images/films/boxerman.jpg);
+}
+.browseimage.comedy {
+  background-image: url(../images/films/hazmat.jpg);
+  background-position: 50% 20%;
+}
+.browseimage.animat {
+  background-image: url(../images/films/toyfigurine.jpg);
+  background-position: 50% 30%;
+}
+.browseimage.artf {
+  background-image: url(../images/films/aquadrop.jpg);
+  background-position: center;
+}
+.browseimage.shortf {
+  background-image: url(../images/films/skyscraper.jpg);
+}
+.browseimage.staffp {
+  background-image: url(../images/films/banana.jpg);
+  background-position: center;
+}
+.browseimage:hover,
+.browseimage:focus {
+  transform: scale(1.1);
+  border: 1px solid var(--blue);
+}
 .passion {
   grid-area: 4 / 2;
 }
