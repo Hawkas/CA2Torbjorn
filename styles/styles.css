@@ -1,5 +1,863 @@
-body {
-  background: #a0a0fd;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: -webkit-xxx-large;
+/* ------------------------------- */
+/* --------Universal Fixes-------- */
+/* ------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+html {
+  box-sizing: border-box; /* Universal Border Box with inheritance part 1 */
+  font-size: 62.5% !important; /* for easier math with 10px assuming a 16px default size */
 }
+*,
+*:before, /* Universal Border Box with inheritance part 2*/
+*:after {
+  box-sizing: inherit;
+}
+
+:root {
+  --black: #212120;
+  --blacker: #141414;
+  --transblacker: rgba(20, 20, 20, 0.8);
+  --blue: #3da4e0;
+  --red: #ff3137;
+  --transwhite: rgba(255, 255, 255, 0.6);
+  --roboto: "Roboto", Arial, sans-serif;
+  --montserrat: "Montserrat", Verdana, sans-serif;
+}
+body {
+  background-color: var(--black);
+  margin: 0; /* to prevent scrollbars */
+  font-family: var(--roboto);
+  font-weight: 400;
+  font-size: 2rem;
+  color: white;
+}
+h1,
+h2 {
+  font-family: var(--montserrat);
+  margin: 0;
+  font-weight: 700;
+  font-size: 3rem;
+  color: white;
+}
+h3 {
+  font-family: var(--montserrat);
+  margin: 0;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: white;
+}
+
+p {
+  font-size: 1.6rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+.redbutton {
+  background-color: var(--red);
+  border-radius: 3px;
+  box-shadow: 0 3px 0 rgba(255, 49, 55, 0.72);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.11rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.transbutton {
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.11rem;
+  border: 1px solid white;
+  transition: background-color 0.3s, color 0.3s;
+}
+.redbutton:hover,
+.redbutton:focus {
+  background-color: white;
+  color: var(--red);
+  border: 1px solid var(--red);
+  transform: translateY(3px); /* to compensate for loss of box-shadow */
+  box-shadow: none;
+}
+.transbutton:hover,
+.transbutton:focus {
+  background-color: white;
+  color: var(--blacker);
+}
+
+/* ------------------------------- */
+/*        Universal Fixes End      */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*               Header            */
+/* ------------------------------- */
+
+.nav-container {
+  display: grid;
+  grid-template: 80px 60px repeat(4, min-content) / [left] 14px 60px 100px 50px 1fr min-content 14px [right];
+  grid-template-areas:
+    ".      bars   logo   logo  .... signin ."
+    "search search search ..... .... ...... ."
+    "user   user   user   ..... .... ...... ."
+    "usnav  usnav  usnav  ..... .... ...... ."
+    "ruler  ruler  ruler  ..... .... ...... ."
+    "nav    nav    nav    ..... .... ...... .";
+  position: fixed; /*  I decided to use fixed to make the dropdown simply overlap rather than move
+                       elements out of the way when activated at the top of the page */
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto; /* in case someone wants to squeeze the window height below 500px for whatever reason */
+  justify-items: start;
+  align-items: start;
+  padding: 0;
+}
+.hamburger {
+  grid-area: bars;
+}
+.logo-parent {
+  grid-area: logo;
+}
+.signin {
+  grid-area: signin;
+}
+.searchbar {
+  grid-area: search;
+}
+.usersettings {
+  grid-area: user;
+}
+.accountnav {
+  grid-area: usnav;
+}
+hr.nav-hide {
+  grid-area: ruler;
+}
+.navbuttons {
+  grid-area: nav;
+}
+
+.headerblock {
+  /* To occupy header space so I can be lazy*/
+  height: 80px;
+  width: 100%;
+}
+
+.header-backdrop {
+  background-color: var(--blacker);
+  grid-column: left / right;
+  grid-row: 1 / 2;
+  height: 80px;
+  width: 100vw;
+  border-bottom: 2px solid var(--transwhite);
+}
+.logo-parent {
+  justify-self: center;
+  align-self: center;
+}
+.logo {
+  width: auto;
+  margin-bottom: 5px;
+  height: 55px;
+}
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  font-size: 40px;
+  height: 50px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  align-self: center;
+  border: 1pt solid rgba(255, 255, 255, 0.2);
+  transition: border 0.3s ease-in;
+}
+.hamburger:focus,
+.hamburger:hover {
+  border: 1pt solid var(--transwhite);
+}
+
+i.fas.fa-bars {
+  padding: 0;
+}
+
+a.signin {
+  justify-self: end;
+  align-self: center;
+  margin-top: 10px;
+  width: 90px;
+  padding: 5px 0;
+  font-size: 16px;
+  margin-bottom: 3px; /* Box-shadow adjustment */
+}
+
+/*------------ NAV STUFF ------------------*/
+
+/* Checkbox hacks + container styling */
+#dropdown-menu,
+#accountdrop {
+  display: none;
+}
+.nav-hide,
+.accountnav {
+  display: none;
+}
+
+#dropdown-menu:checked ~ .nav-hide {
+  display: flex;
+}
+.usersettings {
+  flex-flow: row;
+  height: 100%;
+  width: 160px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 20px;
+  background-color: var(--blacker);
+}
+.usersettings:focus {
+  outline: var(--blue) 1px solid;
+}
+
+.fas.fa-angle-down,
+.fas.fa-angle-up {
+  color: var(--transwhite);
+  transition: color 0.3s ease-in;
+}
+.fas.fa-angle-down:hover,
+.fas.fa-angle-up:hover {
+  color: white;
+}
+#dropdown-menu:checked ~ hr.nav-hide {
+  display: block;
+  margin: 0;
+  width: 160px;
+  border: 1px solid rgba(70, 70, 70, 0.6);
+  background-color: var(--blacker);
+}
+
+#accountdrop:checked ~ .accountnav {
+  display: flex;
+  flex-flow: column;
+  margin: 0;
+  padding-left: 0;
+  padding-bottom: 20px;
+  background-color: var(--blacker);
+}
+ul.navbuttons {
+  flex-flow: column;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  background-color: var(--blacker);
+}
+
+/* making the arrow flip when account menu is open */
+.fas.fa-angle-up {
+  display: none;
+}
+#accountdrop:checked ~ .usersettings .fas.fa-angle-up {
+  display: inline-block;
+}
+#accountdrop:checked ~ .usersettings .fas.fa-angle-down {
+  display: none;
+}
+/* Checkbox hacks + container styling END */
+/* SEARCH */
+
+div.searchbar {
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 60px;
+  padding: 14px;
+  background-color: var(--blacker);
+}
+.searchbar input {
+  font-family: var(--roboto);
+  background-color: var(--black);
+  border: 1px solid var(--transwhite);
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  padding-left: 5px;
+  width: 86px;
+  height: 31px;
+  color: white;
+  letter-spacing: 0.008rem;
+  transition: border 0.3s ease-in-out, width 0.5s ease-in-out;
+}
+.searchbar input::placeholder {
+  /* Placeholder text will not inherit font-family, so I'm forcing it to */
+  font-family: var(--roboto);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.56);
+  letter-spacing: 0.008rem;
+}
+.searchbar input:focus {
+  outline: none;
+  border: 1px solid white;
+  border-right: none;
+}
+
+.searchbar a {
+  font-size: 18px;
+  color: #707070;
+  background-color: var(--black);
+  border: 1px solid var(--transwhite);
+  border-left: none;
+  height: 31px;
+  padding: 3px 10px;
+  border-radius: 0 3px 3px 0;
+  align-self: center;
+  transition: color 0.3s ease-in, border 0.3s ease-in-out;
+}
+.searchbar a:hover,
+.searchbar a:focus {
+  color: white;
+}
+.searchbar input:focus ~ a {
+  /*ensuring border covers the entire searchbar */
+  border: 1px solid white;
+  border-left: none;
+}
+/* SEARCH END */
+/* Navigation buttons styling */
+
+.usersettings img {
+  margin-right: 10px;
+  height: 31px;
+  color: var(--black);
+  background-color: white;
+  padding: 4px 12px;
+  border-radius: 3px;
+}
+
+ul.navbuttons > li:first-child > a,
+ul.accountnav > li:first-child > a {
+  border-top: 0.5px solid var(--black);
+}
+.navbuttons a,
+.accountnav a {
+  display: block;
+  color: var(--transwhite);
+  width: 160px;
+  padding: 10px 0 10px 40px;
+  border-bottom: 0.5px solid var(--black);
+}
+
+.navbuttons a:hover,
+.navbuttons a:focus,
+.accountnav a:hover,
+.accountnav a:focus {
+  color: white;
+  border-left: 3px solid white;
+}
+.navbuttons a.active {
+  color: var(--blacker);
+  background-color: var(--transwhite);
+  border-left: none;
+}
+
+/* ------------------------------- */
+/*            Header END           */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            Footer               */
+/* ------------------------------- */
+/* ------------------------------- */
+/*            Footer END           */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*       PAGE SPECIFIC CONTENT     */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*               HOME              */
+/* ------------------------------- */
+
+/* --------- MAIN CONTAINER -------------*/
+.home-container {
+  display: grid;
+  grid-template:
+    ".... .... ...." 75px
+    ".... .... ...." 500px
+    ".... .... ...." auto
+    ".... .... ...." 1fr
+    ".... .... ...." 1fr
+    / [left] 30px 1fr 30px [right];
+}
+.hero-image {
+  /* Top image styling */
+  background-image: url(../images/emptycinemagradient.jpg);
+  grid-column: left / right;
+  grid-row: 1 / span 2;
+  background-position: 51%;
+  height: 600px;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: cover;
+  filter: blur(1px);
+}
+.homebanner {
+  grid-area: 2 / 2;
+  display: flex;
+  flex-flow: column;
+  justify-self: center;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+.homebanner h1 {
+  width: 200px;
+  text-align: center;
+}
+.homebanner p {
+  margin-top: 20px;
+  text-align: center;
+}
+.bannerbuttons-container {
+  display: flex;
+  flex-flow: column;
+  height: 150px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 28px;
+}
+.cta {
+  font-size: 1.6rem;
+  width: 200px;
+  padding: 15px;
+}
+.homebrowse {
+  grid-area: 3 / 1 / 4 / 4;
+  display: grid;
+  text-align: center;
+  grid-template: 60px auto / 30px 1fr 30px;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 30px 0;
+}
+.homebrowse h3 {
+  background-color: var(--blacker);
+  padding: 30px 20px;
+  width: 100vw;
+  box-shadow: 0 3px 6px black;
+}
+.browseflex {
+  grid-area: 2 / 2;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.browseimage {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8.33;
+  margin-bottom: 8.33;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  width: 300px;
+  height: 66px;
+  background-repeat: no-repeat;
+  background-color: var(--blacker);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease-in;
+}
+.browseimage > span {
+  margin-left: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 0px var(--black);
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+.browseimage.dramas {
+  background-image: url(../images/films/angryman.jpg);
+  background-position: 50% 15%;
+}
+.browseimage.docu {
+  background-image: url(../images/films/turtle.jpg);
+  background-position: right bottom;
+}
+.browseimage.action {
+  background-image: url(../images/films/boxerman.jpg);
+}
+.browseimage.comedy {
+  background-image: url(../images/films/hazmat.jpg);
+  background-position: 50% 20%;
+}
+.browseimage.animat {
+  background-image: url(../images/films/toyfigurine.jpg);
+  background-position: 50% 30%;
+}
+.browseimage.artf {
+  background-image: url(../images/films/aquadrop.jpg);
+  background-position: center;
+}
+.browseimage.shortf {
+  background-image: url(../images/films/skyscraper.jpg);
+}
+.browseimage.staffp {
+  background-image: url(../images/films/banana.jpg);
+  background-position: center;
+}
+.browseimage:hover,
+.browseimage:focus {
+  transform: scale(1.1);
+  border: 1px solid var(--blue);
+}
+.passion {
+  grid-area: 4 / 2;
+}
+.learnmore {
+  grid-area: 5 / 2;
+}
+
+/*-------- TOP --------*/
+
+/*-------- TOP END-----*/
+
+/*-------- BOTTOM --------*/
+/*-------- BOTTOM END-----*/
+
+/* ------------------------------- */
+/*            HOME END             */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            FILMS                */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            FILMS END            */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SEARCH               */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SEARCH END           */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            ACCOUNT              */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            ACCOUNT END          */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SIGNUP 4WHAT         */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SIGNUP 4WHAT END     */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SIGNUP REG           */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SIGNUP REG END       */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            SIGNUP FILM          */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            SIGNUP FILM END      */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*            LOGIN                */
+/* ------------------------------- */
+
+/*-------- MAIN --------*/
+/*-------- MAIN END-----*/
+
+/*-------- ASIDE --------*/
+/*-------- ASIDE END-----*/
+
+/* ------------------------------- */
+/*            LOGIN END            */
+/* ------------------------------- */
+/* To prevent account menu from staying open if screen size is changed */
+@media only screen and (max-device-width: 499px) {
+  #dropdown-menu:not(:checked) ~ ul.accountnav {
+    display: none;
+  }
+}
+/* ------------------------------- */
+/* MEDIA QUERIES LANDSCAPE         */
+/* ------------------------------- */
+
+@media only screen and (min-device-width: 500px) {
+  /* ---------- FONT SIZES -------------- */
+  h1,
+  h2 {
+    font-size: 5.5rem;
+  }
+  h3 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+
+  /*-------- HEADER --------*/
+  .nav-container {
+    grid-template-rows: 80px 60px min-content min-content;
+    grid-template-columns: [left] 14px 60px 100px 50px 1fr min-content 90px 14px [right];
+    grid-template-areas:
+      ".      bars   logo   logo  .... signin user  ....."
+      "search search search ..... .... ...... usnav usnav"
+      "ruler  ruler  ruler  ..... .... ...... ..... ....."
+      "nav    nav    nav    ..... .... ...... ..... .....";
+  }
+
+  #accountdrop:checked ~ .accountnav {
+    grid-area: usnav;
+    justify-self: end;
+    padding-bottom: 0;
+  }
+  .searchbar {
+    padding: 0 14px;
+  }
+  .usersettings {
+    display: flex;
+    width: 100%;
+    background: 0;
+    padding: 0;
+    padding-left: 20px;
+    justify-content: end;
+    margin-top: 5px;
+  }
+  /*-------- HEADER END-----*/
+}
+
+/*-------- FOOTER --------*/
+/*-------- FOOTER END-----*/
+
+/*-------- HOME --------*/
+/*-------- HOME END-----*/
+
+/*-------- FILMS --------*/
+/*-------- FILMS END-----*/
+
+/*-------- SEARCH --------*/
+/*-------- SEARCH END-----*/
+
+/*-------- SIGNUP 1-3 ----*/
+/*-------- SIGNUP 1-3 END-*/
+
+/*-------- LOGIN --------*/
+/*-------- LOGIN END-----*/
+
+/*-------- ACCOUNT --------*/
+/*-------- ACCOUNT END-----*/
+
+/* ------------------------------- */
+/*  MEDIA QUERIES LANDSCAPE END    */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*      MEDIA QUERIES 768px        */
+/* ------------------------------- */
+@media only screen and (min-device-width: 768px) {
+  /*-------- HEADER --------*/
+  .nav-container {
+    grid-template-rows: 80px min-content;
+    grid-template-columns: [left] 14px 60px 100px 50px 1fr min-content min-content 90px 14px [right];
+    grid-template-areas:
+      ".      bars   logo   logo  ..... search signin user ....."
+      "nav    nav    nav    ..... ..... ...... ..... usnav usnav";
+  }
+  div.searchbar.nav-hide {
+    display: flex;
+    justify-self: end;
+    justify-content: end;
+    align-self: center;
+    align-items: center;
+    background: 0;
+    height: 31px;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 0;
+  }
+  #dropdown-menu:checked ~ hr.nav-hide {
+    display: none;
+  }
+  ul.navbuttons {
+    padding-top: 0;
+  }
+}
+/*-------- HEADER END-----*/
+
+/*-------- FOOTER --------*/
+/*-------- FOOTER END-----*/
+
+/*-------- HOME --------*/
+/*-------- HOME END-----*/
+
+/*-------- FILMS --------*/
+/*-------- FILMS END-----*/
+
+/*-------- SEARCH --------*/
+/*-------- SEARCH END-----*/
+
+/*-------- SIGNUP 1-3 ----*/
+/*-------- SIGNUP 1-3 END-*/
+
+/*-------- LOGIN --------*/
+/*-------- LOGIN END-----*/
+
+/*-------- ACCOUNT --------*/
+/*-------- ACCOUNT END-----*/
+
+/* ------------------------------- */
+/*      MEDIA QUERIES 768px END    */
+/* ------------------------------- */
+
+/* ------------------------------- */
+/*     MEDIA QUERIES DESKTOP       */
+/* ------------------------------- */
+@media only screen and (min-device-width: 1024px) {
+  /*-------- HEADER --------*/
+  .nav-container {
+    grid-template-rows: 80px min-content;
+    grid-template-columns: [left] 40px 60px 100px 50px 1fr min-content min-content 90px 40px [right];
+    grid-template-areas:
+      "....   logo   logo   nav   nav   search signin user  ....."
+      "....   ....   ....   ..... ..... ...... ...... usnav usnav";
+  }
+
+  nav label.hamburger {
+    display: none;
+  }
+  .logo-parent {
+    justify-self: start;
+  }
+
+  ul.navbuttons.nav-hide {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 78px;
+  }
+  ul.navbuttons a {
+    width: 100%;
+    padding: 34px 15px 20px 15px;
+    border-bottom: none;
+  }
+  .navbuttons a:hover,
+  .navbuttons a:focus {
+    border-left: none;
+    background-color: var(--black);
+    box-shadow: 0 2px 0 white;
+  }
+  ul.navbuttons a.active {
+    box-shadow: none;
+    background-color: var(--transwhite);
+  }
+  ul.navbuttons > li:first-child > a {
+    border-top: none;
+  }
+  .searchbar input:focus {
+    width: 150px;
+  }
+  /*-------- HEADER END-----*/
+
+  /*-------- FOOTER --------*/
+  /*-------- FOOTER END-----*/
+
+  /*-------- HOME --------*/
+  /*-------- HOME END-----*/
+
+  /*-------- FILMS --------*/
+  /*-------- FILMS END-----*/
+
+  /*-------- SEARCH --------*/
+  /*-------- SEARCH END-----*/
+
+  /*-------- SIGNUP 1-3 ----*/
+  /*-------- SIGNUP 1-3 END-*/
+
+  /*-------- LOGIN --------*/
+  /*-------- LOGIN END-----*/
+
+  /*-------- ACCOUNT --------*/
+  /*-------- ACCOUNT END-----*/
+}
+/* ------------------------------- */
+/*    MEDIA QUERIES DESKTOP END    */
+/* ------------------------------- */

@@ -1,15 +1,142 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="styles/styles.css" />
   <head>
-    <title>My first website</title>
+    <meta charset="UTF-8" />
+    <title>Home - SquareEyes</title>
+    <meta
+      name="description"
+      content="SquareEyes is a video streaming website for independent filmmakers to stream their videos on a pay-per-view basis"
+    />
+    <meta author="Torbjørn Haukås" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/ea2405e1e7.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <h1>Hello world!</h1>
-    <img
-      src="images/Yall-Got-Any-More-Of-That.jpg"
-      alt="Flere slike oppgaver takk"
-    />
-    <p>Welcome to my first website.</p>
+    <header>
+      <nav class="nav-container">
+        <!--Items are ordered as they appear on desktop, for tabbing and so as to not use tabindex because that is bad, or so I read (This was a puzzle to do while keeping it responsive)-->
+        <input id="dropdown-menu" type="checkbox" />
+        <input id="accountdrop" type="checkbox" />
+        <div class="header-backdrop"></div>
+        <label class="hamburger" for="dropdown-menu">
+          <i class="fas fa-bars"></i>
+        </label>
+        <a class="logo-parent" href="index.html"
+          ><img class="logo" src="images/logovector.svg" alt="SquareEyes Logo"
+        /></a>
+        <ul class="navbuttons nav-hide">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="films.html">Films</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="latest.html">Latest</a></li>
+        </ul>
+        <div class="searchbar nav-hide">
+          <input type="text" name="search-bar" placeholder="Search" />
+          <a href="search.html"><i class="fas fa-search"></i></a>
+        </div>
+        <a class="signin redbutton" href="login.html">Sign In</a>
+        <!---In an ideal world this would be possible to activate by pressing enter-->
+        <label class="usersettings nav-hide" for="accountdrop"
+          ><img src="images/userglasses.svg" alt="User Icon" /><i
+            class="fas fa-angle-down"
+          ></i
+          ><i class="fas fa-angle-up"></i
+        ></label>
+        <ul class="accountnav">
+          <li><a href="account.html">Account</a></li>
+          <li><a href="account.html">Support</a></li>
+          <li><a href="nopls.html">Sign Out</a></li>
+        </ul>
+        <hr class="nav-hide" />
+      </nav>
+    </header>
+    <main class="home-container">
+      <div class="hero-image"></div>
+      <section class="homebanner">
+        <h1>Connecting Film-Lovers</h1>
+        <p>
+          SquareEyes allows filmmakers to share their creativity with audiences
+          all over the world. Enjoy our wide selection of films, or submit your
+          own.
+        </p>
+        <div class="bannerbuttons-container">
+          <a href="signupfork.html"
+            ><div class="redbutton cta">Become a Member</div></a
+          >
+          <a href="signupfilm.html"
+            ><div class="transbutton cta">Submit your Project</div></a
+          >
+        </div>
+      </section>
+      <section class="homebrowse">
+        <h3>Browse our Library</h3>
+        <ul class="browseflex">
+          <li>
+            <a class="browseimage dramas" href="films.html"
+              ><span>Dramas</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage docu" href="films.html"
+              ><span>Documentaries</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage action" href="films.html"
+              ><span>Action Films</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage comedy" href="films.html"
+              ><span>Comedies</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage animat" href="films.html"
+              ><span>Animations</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage artf" href="films.html"
+              ><span>Art Films</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage shortf" href="films.html"
+              ><span>Short Films</span></a
+            >
+          </li>
+          <li>
+            <a class="browseimage staffp" href="films.html"
+              ><span>Staff Picks</span></a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="passion homebottom">
+        <h1>Share your Passion.</h1>
+        <p>Publish your work to thousands of film-enthusiasts</p>
+        <p>Leech off of thousands of gullible couch-potatoes</p>
+        <p>Together we will rule the world</p>
+        <a href="signupfilm.html">Pricing and Payment</a>
+      </section>
+      <section class="learnmore homebottom">
+        <h1>Support Filmmaking.</h1>
+        <p>Give the filmmaker money, they'll like that</p>
+        <p>Watch movies and live a decadent lifestyle</p>
+        <p>Allow us to ruin your schedule with entertainment</p>
+        <a href="signupreg.html">Learn More</a>
+      </section>
+    </main>
+    <aside></aside>
+    <footer></footer>
   </body>
 </html>
