@@ -160,7 +160,7 @@ hr.nav-hide {
   grid-column: left / right;
   grid-row: 1 / 2;
   height: 80px;
-  width: 100vw;
+  width: 100%;
   border-bottom: 2px solid var(--transwhite);
 }
 .logo-parent {
@@ -263,8 +263,7 @@ a.signin {
 ul.navbuttons {
   flex-flow: column;
   margin: 0;
-  padding: 0;
-  padding-top: 20px;
+  padding: 20px 0;
   background-color: var(--blacker);
 }
 
@@ -403,6 +402,7 @@ ul.accountnav > li:first-child > a {
     ".... .... ...." 1fr
     ".... .... ...." 1fr
     / [left] 30px 1fr 30px [right];
+  overflow: hidden;
 }
 .hero-image {
   /* Top image styling */
@@ -412,6 +412,7 @@ ul.accountnav > li:first-child > a {
   background-position: 51%;
   height: 600px;
   z-index: -1;
+  overflow: hidden;
   background-repeat: no-repeat;
   background-attachment: local;
   background-size: cover;
@@ -676,12 +677,12 @@ ul.accountnav > li:first-child > a {
 
   /*-------- HEADER --------*/
   .nav-container {
-    grid-template-rows: 80px 60px min-content min-content;
+    grid-template-rows: 80px 60px 2px min-content;
     grid-template-columns: [left] 14px 60px 100px 50px 1fr min-content 90px 14px [right];
     grid-template-areas:
       ".      bars   logo   logo  .... signin user  ....."
       "search search search ..... .... ...... usnav usnav"
-      "ruler  ruler  ruler  ..... .... ...... ..... ....."
+      "ruler  ruler  ruler  ..... .... ...... usnav usnav"
       "nav    nav    nav    ..... .... ...... ..... .....";
   }
 
@@ -741,6 +742,7 @@ ul.accountnav > li:first-child > a {
     grid-template-areas:
       ".      bars   logo   logo  ..... search signin user ....."
       "nav    nav    nav    ..... ..... ...... ..... usnav usnav";
+    overflow-y: hidden;
   }
   div.searchbar.nav-hide {
     display: flex;
@@ -758,7 +760,7 @@ ul.accountnav > li:first-child > a {
     display: none;
   }
   ul.navbuttons {
-    padding-top: 0;
+    padding: 0;
   }
 }
 /*-------- HEADER END-----*/
