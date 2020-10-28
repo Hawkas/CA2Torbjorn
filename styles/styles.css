@@ -427,8 +427,9 @@ ul.accountnav > li:first-child > a {
   text-align: center;
 }
 .homebanner p {
+  max-width: 350px;
   margin-top: 20px;
-  text-align: center;
+  text-align: start;
 }
 .bannerbuttons-container {
   display: flex;
@@ -461,11 +462,12 @@ ul.accountnav > li:first-child > a {
 .browseflex {
   grid-area: 2 / 2;
   display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 600px;
+  flex-flow: wrap row;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: auto;
   margin: 0;
+  margin-top: 20px;
   padding: 0;
   width: 100%;
 }
@@ -475,7 +477,7 @@ ul.accountnav > li:first-child > a {
   justify-content: flex-start;
   align-items: center;
   margin-top: 8.33;
-  margin-bottom: 8.33;
+  margin-bottom: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
   width: 300px;
@@ -487,6 +489,7 @@ ul.accountnav > li:first-child > a {
   transition: transform 0.5s ease-in;
 }
 .browseimage > span {
+  /* Made the text an element for styling*/
   margin-left: 20px;
   font-weight: 500;
   margin-bottom: 20px;
@@ -658,16 +661,6 @@ ul.accountnav > li:first-child > a {
 
 @media only screen and (min-device-width: 500px) {
   /* ---------- FONT SIZES -------------- */
-  h1,
-  h2 {
-    font-size: 5.5rem;
-  }
-  h3 {
-    font-size: 3.5rem;
-  }
-  p {
-    font-size: 2rem;
-  }
 
   /*-------- HEADER --------*/
   .nav-container {
@@ -698,29 +691,37 @@ ul.accountnav > li:first-child > a {
     margin-top: 5px;
   }
   /*-------- HEADER END-----*/
+
+  /*-------- FOOTER --------*/
+  /*-------- FOOTER END-----*/
+
+  /*-------- HOME --------*/
+  .homebanner h1 {
+    width: 100%;
+  }
+  .browseflex {
+    flex-flow: wrap row;
+    align-content: flex-start;
+    justify-content: space-around;
+  }
+
+  /*-------- HOME END-----*/
+
+  /*-------- FILMS --------*/
+  /*-------- FILMS END-----*/
+
+  /*-------- SEARCH --------*/
+  /*-------- SEARCH END-----*/
+
+  /*-------- SIGNUP 1-3 ----*/
+  /*-------- SIGNUP 1-3 END-*/
+
+  /*-------- LOGIN --------*/
+  /*-------- LOGIN END-----*/
+
+  /*-------- ACCOUNT --------*/
+  /*-------- ACCOUNT END-----*/
 }
-
-/*-------- FOOTER --------*/
-/*-------- FOOTER END-----*/
-
-/*-------- HOME --------*/
-/*-------- HOME END-----*/
-
-/*-------- FILMS --------*/
-/*-------- FILMS END-----*/
-
-/*-------- SEARCH --------*/
-/*-------- SEARCH END-----*/
-
-/*-------- SIGNUP 1-3 ----*/
-/*-------- SIGNUP 1-3 END-*/
-
-/*-------- LOGIN --------*/
-/*-------- LOGIN END-----*/
-
-/*-------- ACCOUNT --------*/
-/*-------- ACCOUNT END-----*/
-
 /* ------------------------------- */
 /*  MEDIA QUERIES LANDSCAPE END    */
 /* ------------------------------- */
@@ -729,6 +730,17 @@ ul.accountnav > li:first-child > a {
 /*      MEDIA QUERIES 768px        */
 /* ------------------------------- */
 @media only screen and (min-device-width: 768px) {
+  h1,
+  h2 {
+    font-size: 5.5rem;
+  }
+  h3 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+
   /*-------- HEADER --------*/
   .nav-container {
     grid-template-rows: 80px min-content;
@@ -756,30 +768,31 @@ ul.accountnav > li:first-child > a {
   ul.navbuttons {
     padding: 0;
   }
+
+  /*-------- HEADER END-----*/
+
+  /*-------- FOOTER --------*/
+  /*-------- FOOTER END-----*/
+
+  /*-------- HOME --------*/
+
+  /*-------- HOME END-----*/
+
+  /*-------- FILMS --------*/
+  /*-------- FILMS END-----*/
+
+  /*-------- SEARCH --------*/
+  /*-------- SEARCH END-----*/
+
+  /*-------- SIGNUP 1-3 ----*/
+  /*-------- SIGNUP 1-3 END-*/
+
+  /*-------- LOGIN --------*/
+  /*-------- LOGIN END-----*/
+
+  /*-------- ACCOUNT --------*/
+  /*-------- ACCOUNT END-----*/
 }
-/*-------- HEADER END-----*/
-
-/*-------- FOOTER --------*/
-/*-------- FOOTER END-----*/
-
-/*-------- HOME --------*/
-/*-------- HOME END-----*/
-
-/*-------- FILMS --------*/
-/*-------- FILMS END-----*/
-
-/*-------- SEARCH --------*/
-/*-------- SEARCH END-----*/
-
-/*-------- SIGNUP 1-3 ----*/
-/*-------- SIGNUP 1-3 END-*/
-
-/*-------- LOGIN --------*/
-/*-------- LOGIN END-----*/
-
-/*-------- ACCOUNT --------*/
-/*-------- ACCOUNT END-----*/
-
 /* ------------------------------- */
 /*      MEDIA QUERIES 768px END    */
 /* ------------------------------- */
