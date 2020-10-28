@@ -664,7 +664,7 @@ ul.accountnav > li:first-child > a {
 
   /*-------- HEADER --------*/
   .nav-container {
-    grid-template-rows: 80px 60px 2px min-content;
+    grid-template-rows: 80px 60px 2px minmax(200px, min-content);
     grid-template-columns: [left] 14px 60px 100px 50px 1fr min-content 90px 14px [right];
     grid-template-areas:
       ".      bars   logo   logo  .... signin user  ....."
