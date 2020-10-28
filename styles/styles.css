@@ -398,13 +398,14 @@ ul.accountnav > li:first-child > a {
   display: grid;
   grid-template:
     ".... .... ...." 75px
-    ".... .... ...." 1fr
-    ".... .... ...." 1fr
+    ".... .... ...." 500px
+    ".... .... ...." auto
     ".... .... ...." 1fr
     ".... .... ...." 1fr
     / [left] 30px 1fr 30px [right];
 }
 .hero-image {
+  /* Top image styling */
   background-image: url(../images/emptycinemagradient.jpg);
   grid-column: left / right;
   grid-row: 1 / span 2;
@@ -426,17 +427,6 @@ ul.accountnav > li:first-child > a {
   width: 100%;
   margin-top: 50px;
 }
-
-.homebrowse {
-  grid-area: 3 / 2;
-}
-.passion {
-  grid-area: 4 / 2;
-}
-.learnmore {
-  grid-area: 5 / 2;
-}
-
 .homebanner h1 {
   width: 200px;
   text-align: center;
@@ -458,6 +448,56 @@ ul.accountnav > li:first-child > a {
   width: 200px;
   padding: 15px;
 }
+.homebrowse {
+  grid-area: 3 / 1 / 4 / 4;
+  display: grid;
+  text-align: center;
+  grid-template: 60px auto / 30px 1fr 30px;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 30px 0;
+}
+.homebrowse h3 {
+  background-color: var(--blacker);
+  padding: 30px 20px;
+  width: 100vw;
+  box-shadow: 0 3px 6px black;
+}
+.browseflex {
+  grid-area: 2 / 2;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.browseimage.dramas {
+  background-image: url(../images/angryman.jpg);
+}
+.browseimage {
+  display: block;
+  margin-top: 8.33;
+  margin-bottom: 8.33;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  width: 300px;
+  height: 66px;
+  background-repeat: no-repeat;
+  background-color: var(--blacker);
+  background-size: cover;
+  background-position: center;
+}
+
+.passion {
+  grid-area: 4 / 2;
+}
+.learnmore {
+  grid-area: 5 / 2;
+}
+
 /*-------- TOP --------*/
 
 /*-------- TOP END-----*/
