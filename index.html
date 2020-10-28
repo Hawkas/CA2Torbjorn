@@ -22,117 +22,83 @@
   <body>
     <header>
       <nav class="nav-container">
+        <!--Items are ordered as they appear on desktop, for tabbing and so as to not use tabindex because that is bad, or so I read (This was a puzzle to do while keeping it responsive)-->
         <input id="dropdown-menu" type="checkbox" />
-        <div class="topbar">
-          <label class="hamburger" for="dropdown-menu">
-            <i class="fas fa-bars"></i>
-          </label>
-          <a href="index.html"
-            ><img
-              class="logo"
-              src="images/logovector.svg"
-              alt="SquareEyes Logo"
-          /></a>
-          <ul class="navbuttons topnav">
-            <!--Hidden on mobile-->
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="films.html">Films</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="latest.html">Latest</a></li>
-          </ul>
-          <div class="searchbar">
-            <!--Hidden on mobile-->
-            <input type="text" name="search-bar" placeholder="Search" />
-            <a href="search.html"><i class="fas fa-search"></i></a>
-          </div>
-          <a class="signin redbutton" href="login.html">Sign In</a>
-
-          <label class="usersettings" for="accountdroptop"
-            ><i class="fas fa-user"></i><i class="fas fa-angle-down"></i
-            ><i class="fas fa-angle-up"></i></label
-          ><!--Hidden on mobile-->
+        <input id="accountdrop" type="checkbox" />
+        <div class="header-backdrop"></div>
+        <label class="hamburger" for="dropdown-menu">
+          <i class="fas fa-bars"></i>
+        </label>
+        <a class="logo-parent" href="index.html"
+          ><img class="logo" src="images/logovector.svg" alt="SquareEyes Logo"
+        /></a>
+        <ul class="navbuttons nav-hide">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="films.html">Films</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="latest.html">Latest</a></li>
+        </ul>
+        <div class="searchbar nav-hide">
+          <input type="text" name="search-bar" placeholder="Search" />
+          <a href="search.html"><i class="fas fa-search"></i></a>
         </div>
-        <input id="accountdroptop" type="checkbox" />
-        <ul class="accountnav topright">
-          <!---FIX THIS ASAP LOL-->
+        <a class="signin redbutton" href="login.html">Sign In</a>
+        <!---In an ideal world this would be possible to activate by pressing enter-->
+        <label class="usersettings nav-hide" for="accountdrop"
+          ><img src="images/userglasses.svg" alt="User Icon" /><i
+            class="fas fa-angle-down"
+          ></i
+          ><i class="fas fa-angle-up"></i
+        ></label>
+        <ul class="accountnav">
           <li><a href="account.html">Account</a></li>
           <li><a href="account.html">Support</a></li>
           <li><a href="nopls.html">Sign Out</a></li>
         </ul>
-        <div class="dropdown">
-          <div class="searchbar">
-            <input type="text" name="search-bar" placeholder="Search" />
-            <a href="search.html"><i class="fas fa-search"></i></a>
-          </div>
-          <input id="accountdrop" type="checkbox" />
-          <label class="usersettings" for="accountdrop"
-            ><i class="fas fa-user"></i><i class="fas fa-angle-down"></i
-            ><i class="fas fa-angle-up"></i
-          ></label>
-          <ul class="accountnav">
-            <li><a href="account.html">Account</a></li>
-            <li><a href="account.html">Support</a></li>
-            <li><a href="nopls.html">Sign Out</a></li>
-          </ul>
-          <hr />
-          <ul class="navbuttons dropnav">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="films.html">Films</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="latest.html">Latest</a></li>
-          </ul>
-        </div>
+        <hr class="nav-hide" />
       </nav>
     </header>
-    <!--Occupy Headerstreet-->
-    <div class="headerblock"></div>
-    <main>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-        blanditiis sapiente quas mollitia qui at ullam porro ipsa unde soluta,
-        quo minima alias est, totam dolores nostrum maiores excepturi debitis
-        dicta saepe veniam odit amet ipsum temporibus? Illum incidunt vel
-        commodi in et rerum blanditiis officia! Error tempore nihil,
-        necessitatibus provident quae aliquid dolorum consequatur laudantium
-        quas esse. Praesentium, officia repudiandae facere, alias tenetur in eos
-        voluptatibus ut earum fuga reiciendis eius inventore, nesciunt incidunt
-        enim culpa aspernatur ratione dolore fugiat aperiam unde fugit? Veniam
-        ab impedit quis quisquam, neque dignissimos dolorem itaque ad! Veritatis
-        expedita ipsa non. Aspernatur, corporis? Numquam quis architecto at eos
-        assumenda, explicabo ut? Assumenda quod laudantium nulla molestiae, unde
-        veritatis deserunt vitae ullam ducimus, dignissimos id provident
-        accusantium quos fuga, reprehenderit obcaecati placeat. Sit recusandae
-        doloremque veritatis officia quisquam nam, nulla molestiae vero quia
-        aperiam rem qui impedit molestias numquam, cupiditate non consequuntur
-        optio perspiciatis laborum voluptatibus, dolore ipsum iure quam. Iusto
-        voluptas numquam provident ab eaque reprehenderit alias repellendus.
-        Eaque, ducimus quibusdam error quis, officia iste quaerat deserunt porro
-        placeat dolorum incidunt, nisi necessitatibus commodi neque sed aliquid
-        amet maxime excepturi voluptate hic voluptatem dolore fuga in vero.
-        Repellat incidunt minima corrupti cupiditate soluta reprehenderit nemo
-        amet id perspiciatis facere, voluptas dignissimos ea inventore.
-        Necessitatibus, excepturi quasi. Nisi, quidem, harum earum, expedita
-        quam itaque in impedit quisquam eum porro voluptates amet voluptatum
-        quaerat voluptas. Rem dicta hic suscipit eum aperiam reprehenderit,
-        quibusdam debitis temporibus praesentium aut voluptatum atque magni
-        rerum nemo, saepe, recusandae nam eveniet nisi voluptates laudantium
-        exercitationem ipsa laborum ad numquam. Dolore praesentium sit, magnam a
-        dolorum fugiat natus obcaecati quidem! Voluptatem, rerum nisi cum ex sit
-        sed tenetur iure dolores similique quasi in deserunt quos. Veritatis
-        sint, omnis quis provident dolore quo illo eum laudantium perferendis,
-        sed quod natus dolores quam architecto! Cum consequatur nam quo quaerat,
-        enim quasi ea facere. Voluptatum distinctio, pariatur eaque in explicabo
-        deleniti nemo facere error illo recusandae magni praesentium aliquam
-        eveniet, reprehenderit unde sapiente perspiciatis, quidem alias earum?
-        Voluptatum illo, maiores quidem, tempore sint tenetur distinctio rem nam
-        ex voluptatibus repellat, delectus est minima? Suscipit quasi quo
-        laudantium asperiores ipsa quia repellat obcaecati, aliquid rerum
-        dolores non dolor voluptatibus et beatae tenetur nobis labore dolore
-        deserunt atque, perspiciatis facere recusandae sequi dignissimos
-        expedita. Omnis voluptate nulla harum inventore laudantium. Rem voluptas
-        repudiandae nihil facilis, soluta exercitationem consequuntur deserunt
-        placeat nobis quos veritatis quisquam culpa dolores.
-      </p>
+    <main class="home-container">
+      <div class="hero-image"></div>
+      <section class="homebanner">
+        <h1>Connecting Film-Lovers</h1>
+        <p>
+          SquareEyes allows filmmakers to share their creativity with audiences
+          all over the world. Enjoy our wide selection of films, or submit your
+          own.
+        </p>
+        <div class="bannerbuttons-container">
+          <div class="redbutton cta">Become a Member</div>
+          <div class="transbutton cta">Submit your Project</div>
+        </div>
+      </section>
+      <section class="homebrowse">
+        <h2>Browse our Library</h2>
+        <ul>
+          <li>Dramas</li>
+          <li>Documentaries</li>
+          <li>Action Films</li>
+          <li>Comedies</li>
+          <li>Animations</li>
+          <li>Art Films</li>
+          <li>Short Films</li>
+          <li>Staff Picks</li>
+        </ul>
+      </section>
+      <section class="passion homebottom">
+        <h1>Share your Passion.</h1>
+        <p>Publish your work to thousands of film-enthusiasts</p>
+        <p>Leech off of thousands of gullible couch-potatoes</p>
+        <p>Together we will rule the world</p>
+        <a href="signupfilm.html">Pricing and Payment</a>
+      </section>
+      <section class="learnmore homebottom">
+        <h1>Support Filmmaking.</h1>
+        <p>Give the filmmaker money, they'll like that</p>
+        <p>Watch movies and live a decadent lifestyle</p>
+        <p>Allow us to ruin your schedule with entertainment</p>
+        <a href="signupreg.html">Learn More</a>
+      </section>
     </main>
     <aside></aside>
     <footer></footer>
