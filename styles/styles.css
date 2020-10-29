@@ -313,7 +313,8 @@ div.searchbar {
   color: rgba(255, 255, 255, 0.56);
   letter-spacing: 0.008rem;
 }
-.searchbar input:focus {
+.searchbar input:focus,
+.searchbar input:hover {
   outline: none;
   border: 1px solid white;
   border-right: none;
@@ -335,7 +336,8 @@ div.searchbar {
 .searchbar a:focus {
   color: white;
 }
-.searchbar input:focus ~ a {
+.searchbar input:focus ~ a,
+.searchbar input:hover ~ a {
   /*ensuring border covers the entire searchbar */
   border: 1px solid white;
   border-left: none;
@@ -579,7 +581,6 @@ ul.accountnav > li:first-child > a {
 }
 .backdrop-square {
   background-color: var(--blacker);
-  box-shadow: ;
 }
 /*-------- TOP --------*/
 
