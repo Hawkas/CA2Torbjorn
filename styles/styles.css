@@ -135,7 +135,7 @@ ul {
   padding: 0;
 }
 .nav-container > * {
-  pointer-events: auto; /* Making everything else clickable in their respective areas */
+  pointer-events: visible; /* Making everything else clickable in their respective areas */
 }
 .hamburger {
   grid-area: bars;
@@ -440,7 +440,7 @@ footer small {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  padding: 0 px;
+  padding: 0;
   align-items: center;
   width: 100%;
 }
@@ -900,7 +900,7 @@ footer .fab {
 /*            LOGIN END            */
 /* ------------------------------- */
 /* To prevent account menu from staying open if screen size is changed */
-@media only screen and (max-device-width: 499px) {
+@media only screen and (max-width: 499px) {
   #dropdown-menu:not(:checked) ~ ul.accountnav {
     display: none;
   }
@@ -909,7 +909,7 @@ footer .fab {
 /* MEDIA QUERIES LANDSCAPE         */
 /* ------------------------------- */
 
-@media only screen and (min-device-width: 500px) {
+@media only screen and (min-width: 500px) {
   /* ---------- FONT SIZES -------------- */
 
   /*-------- HEADER --------*/
@@ -994,7 +994,7 @@ footer .fab {
 /* ------------------------------- */
 /*      MEDIA QUERIES 768px        */
 /* ------------------------------- */
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-width: 768px) {
   h1,
   h2 {
     font-size: 5.5rem;
@@ -1162,7 +1162,7 @@ footer .fab {
 /* ---------------------------------------- */
 /*     MEDIA QUERIES 1024px+                */
 /* -----------------------------------------*/
-@media only screen and (min-device-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   /*-------- HEADER --------*/
   .nav-container {
     grid-template-rows: 80px min-content;
@@ -1294,7 +1294,7 @@ footer .fab {
 /*--------------------------------*/
 /*   MEDIA QUERIES DESKTOP        */
 /*--------------------------------*/
-@media only screen and (min-device-width: 1366px) {
+@media only screen and (min-width: 1366px) {
   /*-------- HOME --------*/
   .home-container {
     display: grid;
