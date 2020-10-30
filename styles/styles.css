@@ -14,9 +14,9 @@ html {
 }
 
 :root {
-  --black: #212120;
-  --blacker: #141414;
-  --transblacker: rgba(20, 20, 20, 0.8);
+  --black: #272727;
+  --blacker: #1b1b1b;
+  --transblacker: rgba(27, 27, 27, 0.8);
   --blue: #3da4e0;
   --red: #ff3137;
   --transwhite: rgba(255, 255, 255, 0.6);
@@ -24,6 +24,7 @@ html {
   --montserrat: "Montserrat", Verdana, sans-serif;
 }
 body {
+  overflow-x: hidden; /* Screw horizontal scrollbars */
   background-color: var(--black);
   margin: 0; /* to prevent scrollbars */
   font-family: var(--roboto);
@@ -31,6 +32,7 @@ body {
   font-size: 2rem;
   color: white;
 }
+
 h1,
 h2 {
   font-family: var(--montserrat);
@@ -125,7 +127,7 @@ ul {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 5;
   overflow-y: auto; /* in case someone wants to squeeze the window height below 500px for whatever reason */
   justify-items: start;
   align-items: start;
@@ -254,7 +256,10 @@ a.signin {
   margin: 0;
   width: 160px;
   border: 1px solid rgba(70, 70, 70, 0.6);
+  border-left: none;
+  border-right: none;
   background-color: var(--blacker);
+  padding: 2px 0;
 }
 
 #accountdrop:checked ~ .accountnav {
@@ -268,6 +273,7 @@ a.signin {
 ul.navbuttons {
   flex-flow: column;
   margin: 0;
+  border-radius: 0 0 3px 0;
   padding: 20px 0;
   background-color: var(--blacker);
 }
@@ -387,6 +393,121 @@ ul.accountnav > li:first-child > a {
 /* ------------------------------- */
 /*            Footer               */
 /* ------------------------------- */
+.footer-container {
+  background-color: var(--blacker);
+  color: var(--transwhite);
+  height: 100%;
+  width: 100vw;
+  align-self: end;
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: center;
+  max-width: 100vw;
+  padding: 60px 14px 50px 14px;
+  text-align: center;
+  line-height: 2.2; /* For underline on hover. It wouldnt show otherwise idk */
+  border-top: 30px solid #ffffff05;
+}
+
+footer p {
+  font-size: 1.6rem;
+  width: auto;
+}
+
+footer small {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.footer-top {
+  min-width: 0;
+  width: 100%;
+  margin-bottom: 30px;
+  flex: none; /* To prevent container from resizing */
+}
+.footer-bottom {
+  flex: none;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.footer-copyright {
+  flex: 1 1 100%; /* To center */
+}
+.footer-top-blocks {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 0 px;
+  align-items: center;
+  width: 100%;
+}
+.footer-top-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+  width: 100%;
+}
+.footer-block {
+  flex: none; /* To keep each square same size */
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.footer-top-blocks ul:nth-of-type(2),
+.footer-top-blocks ul:nth-of-type(3) {
+  padding-top: 10px;
+}
+.footer-li {
+  padding: 0;
+  white-space: nowrap;
+  flex: 1 1 100%; /* To make each element take up the same amount of space */
+}
+.footer-block li:nth-of-type(2) {
+  margin-left: 15px;
+}
+.fab.fa-twitter-square {
+  margin-left: 10px;
+}
+footer .fab {
+  font-size: 24px;
+  line-height: 1;
+  border-bottom: 1px solid transparent; /* To prevent border from moving the entire flexbox */
+  padding-bottom: 1px; /* for bottom-border */
+}
+.footer-li.social {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.footer-top-inline li:nth-of-type(2) {
+  padding-left: 1.5em;
+  margin-left: 1.5em;
+  border-left: 1px solid currentColor;
+}
+.footer-top li {
+  cursor: pointer;
+}
+.footer-top li p:hover,
+.footer-top li p:focus {
+  color: white;
+  text-decoration: underline;
+}
+.footer-top .fab:hover,
+.footer-top .fab:focus {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
 /* ------------------------------- */
 /*            Footer END           */
 /* ------------------------------- */
@@ -404,7 +525,7 @@ ul.accountnav > li:first-child > a {
   display: grid;
   grid-template:
     ".... .... ...." 75px
-    ".... .... ...." 600px
+    ".... .... ...." 525px
     ".... .... ...." auto
     ".... .... ...." 200px
     ".... .... ...." 200px
@@ -412,12 +533,14 @@ ul.accountnav > li:first-child > a {
     ".... .... ...." 1fr
     / [left] 30px 1fr 30px [right];
   overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 200px;
 }
 .hero-image {
   /* Top image styling */
-  background-image: url(../images/emptycinemagradient.jpg);
+  background-image: url("../images/emptycinemagradient.jpg");
   grid-column: left / right;
-  margin-top: 75px;
   grid-row: 1 / span 2;
   background-position: 51%;
   height: 600px;
@@ -439,57 +562,50 @@ ul.accountnav > li:first-child > a {
 }
 .homebanner h1 {
   width: 200px;
+  max-height: 100px;
+  flex: auto;
   text-align: center;
 }
 .homebanner p {
   max-width: 350px;
-  margin-top: 20px;
+  flex: auto;
+  max-height: 150px;
   text-align: center;
-  widows: 2;
+  widows: 3;
 }
 .bannerbuttons-container {
   display: flex;
+  flex: auto;
   flex-flow: row wrap;
-  height: 150px;
+  height: auto;
   width: 100%;
   justify-content: space-around;
   align-items: flex-start;
-  align-content: space-around;
-  margin-top: 28px;
+  align-content: flex-start;
 }
 .cta {
   font-size: 1.6rem;
   width: 200px;
-  padding: 20px; /* Height adjust due to box shadow on other button */
+  padding: 20px;
   margin: 6px;
-}
-.transbutton.cta {
-  padding-top: 19px;
-  padding-bottom: 23px;
 }
 .homebrowse {
   grid-area: 3 / 1 / 4 / 4;
   display: grid;
   text-align: center;
-  grid-template: 110px auto / 30px 1fr 30px;
+  grid-template: 70px auto / 30px 1fr 30px;
   justify-items: center;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   grid-gap: 10px 0;
 }
 .homebrowse h3 {
   grid-area: 1 / 1 / 4 / 4;
-  align-self: flex-start;
   height: 100%;
-  background: rgb(20, 20, 20); /*fallback */
-  background: linear-gradient(
-    180deg,
-    rgb(18, 18, 18) 15%,
-    rgb(20, 20, 20) 100%
-  );
-  padding-top: 60px;
+  background: rgb(20, 20, 20);
+  padding-top: 40px;
   width: 100%;
-  box-shadow: 0 -5px 6px #121212;
+  box-shadow: 0 -20px 5px rgba(20, 20, 20, 1); /* To cover up a weird line on the bottom of banner */
 }
 .browseflex {
   grid-area: 2 / 2;
@@ -499,18 +615,15 @@ ul.accountnav > li:first-child > a {
   align-content: flex-start;
   height: auto;
   margin: 0;
-  margin-top: 0px;
   padding: 0;
   max-width: 715px; /* Max width to avoid orphans when unwrapping */
 }
 .browseimage {
   display: flex; /* Using flex to align text, and to more easily move it in breakpoints */
   flex-flow: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 8.33px;
-  margin-bottom: 8.33px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  justify-content: stretch;
+  align-items: stretch;
+  margin-top: 15px;
   border-radius: 3px;
   width: 300px;
   height: 66px;
@@ -521,56 +634,133 @@ ul.accountnav > li:first-child > a {
   transition: transform 0.5s ease-in;
 }
 .browseimage > span {
-  /* Made the text an element for styling*/
-  margin-left: 20px;
+  /* Made the text an element for positioning*/
+  /* Also giving the element a semi-transparent backdrop to cover the image*/
   font-weight: 500;
-  margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-align: left;
   text-transform: uppercase;
-  text-shadow: 0px 1px 0px var(--black);
-  border-radius: 4px;
-  padding: 5px;
-  background-color: rgba(20, 20, 20, 0.5);
+  text-shadow: 2px 2px 6px var(--black);
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-left: 25px;
+  background-color: rgba(27, 27, 27, 0.3);
+  transition: transform 0.5s ease-in;
 }
 .browseimage.dramas {
-  background-image: url(../images/films/angryman.jpg);
+  background-image: url("../images/films/angryman.jpg");
   background-position: 50% 15%;
 }
 .browseimage.docu {
-  background-image: url(../images/films/turtle.jpg);
+  background-image: url("../images/films/turtle.jpg");
   background-position: right bottom;
 }
 .browseimage.action {
-  background-image: url(../images/films/boxerman.jpg);
+  background-image: url("../images/films/boxerman.jpg");
 }
 .browseimage.comedy {
-  background-image: url(../images/films/hazmat.jpg);
+  background-image: url("../images/films/hazmat.jpg");
   background-position: 50% 20%;
 }
 .browseimage.animat {
-  background-image: url(../images/films/toyfigurine.jpg);
+  background-image: url("../images/films/toyfigurine.jpg");
   background-position: 50% 30%;
 }
 .browseimage.artf {
-  background-image: url(../images/films/aquadrop.jpg);
+  background-image: url("../images/films/aquadrop.jpg");
   background-position: center;
 }
 .browseimage.shortf {
-  background-image: url(../images/films/skyscraper.jpg);
+  background-image: url("../images/films/skyscraper.jpg");
 }
 .browseimage.staffp {
-  background-image: url(../images/films/banana.jpg);
+  background-image: url("../images/films/banana.jpg");
   background-position: center;
 }
 .browseimage:hover,
 .browseimage:focus {
-  transform: scale(1.1);
-  border: 1px solid var(--blue);
+  transform: scale(1.05);
+  box-shadow: 1px 1px 3px var(--blue), -1px -1px 3px var(--blue);
 }
-.passion {
-  grid-area: 5 / 2;
+.browseimage:focus > span,
+.browseimage:hover > span {
+  background-color: transparent;
+  transform: scale(1.03);
 }
-.learnmore {
-  grid-area: 6 / 2;
+.section-passion {
+  grid-area: 6 / 1 / 7 / 4;
+  justify-self: center;
+}
+.section-learnmore {
+  grid-area: 7 / 1 / 8 / 4;
+  justify-self: center;
+}
+.homebottom {
+  padding-bottom: 100px;
+  margin-bottom: 150px;
+  width: 100%;
+  max-width: 1738px;
+  background-color: var(--blacker);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  box-shadow: 10px 10px 25px rgba(48, 48, 48, 0.8),
+    -10px -10px 25px rgba(48, 48, 48, 0.8);
+}
+.homebottom h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.homebottom p {
+  text-align: left;
+  font-size: 1.6rem;
+  line-height: 2.2;
+  width: 250px;
+}
+.homebottom a {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--blue);
+}
+.homebottom a:hover,
+.homebottom a:focus {
+  color: white;
+}
+
+.homebottom-text a::after {
+  content: " \02C3";
+  transition: padding-left 0.5s ease-in-out;
+}
+.homebottom a:hover:after {
+  padding-left: 20px;
+  text-decoration: none;
+}
+.homebottom-text {
+  display: flex;
+  flex-flow: column;
+  padding: 20px 30px;
+  margin-top: 40px;
+}
+.homebottom-text p:last-of-type {
+  margin-bottom: 60px;
+}
+.homebottom-image {
+  flex: 1 1 100%;
+}
+
+.section-passion img,
+.section-learnmore img {
+  width: 100%;
+  box-shadow: -5px 5px 6px rgba(0, 0, 0, 0.6);
+  height: 215px;
+  object-fit: cover;
+}
+.section-passion img {
+  object-position: 50% 20%;
 }
 .pagesplit {
   grid-area: 4 / left / 5 / right;
@@ -580,7 +770,26 @@ ul.accountnav > li:first-child > a {
   background-size: cover;
 }
 .backdrop-square {
-  background-color: var(--blacker);
+  display: none;
+  position: absolute;
+  width: 488px;
+  height: 488px;
+  z-index: -1;
+  transform: matrix(0.74, -0.67, 0.67, 0.74, 0, 0);
+  background: var(--blacker) 0% 0% no-repeat padding-box;
+  box-shadow: 10px 10px 6px #00000029;
+}
+.backdrop-square.top {
+  top: 1500px;
+  left: 200px;
+}
+.backdrop-square.middle {
+  top: 2300px;
+  right: 200px;
+}
+.backdrop-square.bottom {
+  top: 3200px;
+  left: 200px;
 }
 /*-------- TOP --------*/
 
@@ -724,13 +933,23 @@ ul.accountnav > li:first-child > a {
   }
   .usersettings {
     display: flex;
+    align-self: center;
+    align-items: center;
     width: 100%;
+    height: 31px;
     background: 0;
     padding: 0;
     padding-left: 20px;
+    margin-top: 10px;
     justify-content: end;
-    margin-top: 5px;
   }
+  .accountnav {
+    border-radius: 0 0 0 3px;
+  }
+  .accountnav > li:nth-child(3) > a:nth-child(1) {
+    border-radius: 0 0 0 3px;
+  }
+
   /*-------- HEADER END-----*/
 
   /*-------- FOOTER --------*/
@@ -743,8 +962,14 @@ ul.accountnav > li:first-child > a {
 
   .bannerbuttons-container {
     justify-content: center;
+    margin-top: 0;
   }
-
+  .homebottom h2 {
+    font-size: 3.5rem;
+  }
+  .homebottom p {
+    width: 100%;
+  }
   /*-------- HOME END-----*/
 
   /*-------- FILMS --------*/
@@ -788,7 +1013,7 @@ ul.accountnav > li:first-child > a {
     grid-template-areas:
       ".      bars   logo   logo  ..... search signin user ....."
       "nav    nav    nav    ..... ..... ...... ..... usnav usnav";
-    overflow-y: hidden;
+    overflow-y: auto;
   }
   div.searchbar.nav-hide {
     display: flex;
@@ -812,11 +1037,106 @@ ul.accountnav > li:first-child > a {
   /*-------- HEADER END-----*/
 
   /*-------- FOOTER --------*/
+  .footer-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .footer-top-blocks {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .footer-top .footer-block {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 150px;
+  }
+
+  .footer-block li:nth-of-type(2) {
+    margin-left: 0;
+  }
+  .footer-top-blocks ul:nth-of-type(2),
+  .footer-top-blocks ul:nth-of-type(3) {
+    padding-top: 0;
+  }
   /*-------- FOOTER END-----*/
 
   /*-------- HOME --------*/
   .homebanner p {
     max-width: 500px; /* For text wrapping */
+  }
+  .homebrowse h3 {
+    padding-top: 20px;
+  }
+  .homebottom {
+    padding-bottom: 0;
+    height: auto;
+    max-width: 1738px;
+    max-height: 651px;
+    justify-content: center;
+    align-items: stretch;
+    flex-flow: column wrap;
+  }
+  .homebottom-text {
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 56.9%;
+    margin: 0;
+    padding-top: 116px;
+  }
+  .homebottom-text > * {
+    flex-basis: 100%; /* To make everything wrap */
+    max-width: 562px;
+  }
+  .homebottom-text h3 {
+    align-self: flex-start;
+    margin-bottom: 33px;
+  }
+  .passion .homebottom-text {
+    margin-left: min(10vw, 211px);
+    padding: 0;
+  }
+  .learnmore .homebottom-text {
+    margin-left: min(8vw, 157px);
+    padding: 0;
+  }
+  .homebottom-text p {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  .passion,
+  .learnmore {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .learnmore {
+    flex-flow: row-reverse;
+  }
+  .passion > div:nth-child(1),
+  .learnmore > div:nth-child(1) {
+    align-self: flex-start;
+  }
+  .section-passion img,
+  .section-learnmore img {
+    height: 651px;
+    width: 100%;
+    max-width: 753px;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.6);
+  }
+  .section-learnmore img {
+    box-shadow: -5px 5px 6px rgba(0, 0, 0, 0.6);
+  }
+  .homebottom-image {
+    flex: 1 1 44.1%;
+    max-height: 651px;
   }
   /*-------- HOME END-----*/
 
@@ -840,7 +1160,7 @@ ul.accountnav > li:first-child > a {
 /* ------------------------------- */
 
 /* ---------------------------------------- */
-/*     MEDIA QUERIES TABLET LANDSCAPE       */
+/*     MEDIA QUERIES 1024px+                */
 /* -----------------------------------------*/
 @media only screen and (min-device-width: 1024px) {
   /*-------- HEADER --------*/
@@ -850,6 +1170,7 @@ ul.accountnav > li:first-child > a {
     grid-template-areas:
       "....   logo   logo   nav   nav   search signin user  ....."
       "....   ....   ....   ..... ..... ...... ...... usnav usnav";
+    overflow-y: hidden;
   }
 
   nav label.hamburger {
@@ -889,6 +1210,9 @@ ul.accountnav > li:first-child > a {
   /*-------- HEADER END-----*/
 
   /*-------- FOOTER --------*/
+  .footer-top-blocks {
+    justify-content: space-around;
+  }
   /*-------- FOOTER END-----*/
 
   /*-------- HOME --------*/
@@ -896,7 +1220,7 @@ ul.accountnav > li:first-child > a {
     display: grid;
     grid-template:
       ".... .... ...." 75px
-      ".... .... ...." 600px
+      ".... .... ...." 525px
       ".... .... ...." auto
       ".... .... ...." 200px
       ".... .... ...." 200px
@@ -904,10 +1228,6 @@ ul.accountnav > li:first-child > a {
       ".... .... ...." 1fr
       / [left] 30px 1fr 30px [right];
     overflow: hidden;
-  }
-  .homebrowse {
-    align-items: center;
-    align-content: center;
   }
 
   .browseflex {
@@ -917,14 +1237,20 @@ ul.accountnav > li:first-child > a {
   }
 
   .browseimage {
-    justify-content: center;
+    justify-content: stretch;
     align-items: flex-end;
     width: 221px;
     height: 142px;
   }
   .browseimage span {
-    margin-left: 0;
-    margin-bottom: 0;
+    text-align: center;
+    padding-top: 110px;
+    padding-left: 0;
+    height: 142px;
+    width: 221px;
+  }
+  .homebrowse h3 {
+    padding-top: 30px;
   }
   .cta {
     font-size: 1.8rem;
@@ -934,6 +1260,15 @@ ul.accountnav > li:first-child > a {
   .transbutton.cta {
     padding-top: 19px; /* <-- I have no idea why I have to do this but it won't align if not */
     padding-bottom: 23px; /* height adjust due to box shadow on other button */
+  }
+  .section-passion {
+    grid-area: 6 / 2 / 7 / 3;
+  }
+  .section-learnmore {
+    grid-area: 7 / 2 / 8 / 3;
+  }
+  .homebottom h2 {
+    font-size: 4rem;
   }
   /*-------- HOME END-----*/
 
@@ -953,31 +1288,37 @@ ul.accountnav > li:first-child > a {
   /*-------- ACCOUNT END-----*/
 }
 /* ------------------------------- */
-/*    MEDIA QUERIES TABLET END     */
+/*    MEDIA QUERIES 1024px END     */
 /* ------------------------------- */
+
 /*--------------------------------*/
 /*   MEDIA QUERIES DESKTOP        */
 /*--------------------------------*/
 @media only screen and (min-device-width: 1366px) {
+  /*-------- HOME --------*/
   .home-container {
     display: grid;
     grid-template:
       ".... .... ...." 75px
-      ".... .... ...." 600px
+      ".... .... ...." 675px
       ".... .... ...." auto
       ".... .... ...." 200px
-      ".... .... ...." 200px
+      ".... .... ...." 450px
       ".... .... ...." 1fr
       ".... .... ...." 1fr
       / [left] 30px 1fr 30px [right];
     overflow: hidden;
   }
   .hero-image {
-    background-image: url(../images/homebannercurve.jpg);
-    height: 1490px;
+    background-image: url("../images/homebannercurve.jpg"); /* I put the damn bezier curve on this so even if it's only on desktop I'm still using it */
+    height: 100%;
+    max-height: 1680px;
+    grid-row: 1 / span 6;
     filter: blur(0);
   }
-
+  .homebanner h1 {
+    margin-top: 75px;
+  }
   .browseflex {
     width: 100%;
     justify-content: space-between;
@@ -985,7 +1326,6 @@ ul.accountnav > li:first-child > a {
   }
   .homebrowse h3 {
     grid-area: 1 / 1 / 4 / 4;
-    align-self: start;
     padding-top: 30px;
     height: initial;
     background: transparent;
@@ -995,8 +1335,22 @@ ul.accountnav > li:first-child > a {
   .pagesplit {
     display: none;
   }
-
-  /*-------- HOME --------*/
+  .passion {
+    grid-area: 7 / 2;
+  }
+  .learnmore {
+    grid-area: 8 / 2;
+  }
+  .homebottom {
+    box-shadow: none;
+    box-shadow: 10px 10px 25px rgba(48, 48, 48, 0.8);
+  }
+  .backdrop-square {
+    display: inline-block;
+  }
+  .homebottom h2 {
+    font-size: 5.5rem;
+  }
 
   /*-------- HOME END-----*/
 
