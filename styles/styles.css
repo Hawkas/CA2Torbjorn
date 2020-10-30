@@ -24,9 +24,17 @@ html {
   --montserrat: "Montserrat", Verdana, sans-serif;
 }
 body {
+  background-color: var(--blacker);
+  height: 100%;
+}
+.page-container {
+  width: 100vw;
+  max-width: 2159px; /* Just so everything doesn't expand apart and break when zooming out. This is the width on my 4k monitor, and going beyond this things start falling apart. As an added bonus you can now zoom out if you think it's too big, which it is (at least home lol) */
   overflow-x: hidden; /* Screw horizontal scrollbars */
+  min-height: 100%;
   background-color: var(--black);
-  margin: 0; /* to prevent scrollbars */
+  margin: 0 auto; /* to center if zoomed out */
+  position: relative;
   font-family: var(--roboto);
   font-weight: 400;
   font-size: 2rem;
@@ -111,7 +119,10 @@ ul {
 /* ------------------------------- */
 /*               Header            */
 /* ------------------------------- */
-
+header {
+  width: 100vw; /* To ensure the NAV doesnt fall apart when zoomed out */
+  max-width: 2159px; /* -- ^ -- */
+}
 .nav-container {
   display: grid;
   grid-template: 80px 60px repeat(4, min-content) / [left] 14px 60px 100px 50px 1fr min-content 14px [right];
@@ -127,6 +138,9 @@ ul {
   top: 0;
   left: 0;
   right: 0;
+  margin: 0 auto; /* To make the menu stay aligned with body if screen is zoomed out */
+  width: 100vw; /* --^--- */
+  max-width: 2159px; /* --^--*/
   z-index: 5;
   overflow-y: auto; /* in case someone wants to squeeze the window height below 500px for whatever reason */
   justify-items: start;
@@ -398,11 +412,13 @@ ul.accountnav > li:first-child > a {
   color: var(--transwhite);
   height: 100%;
   width: 100vw;
+  max-width: 2159px;
   align-self: end;
   display: flex;
+  position: relative;
   flex-flow: column-reverse;
   justify-content: center;
-  max-width: 100vw;
+
   padding: 60px 14px 50px 14px;
   text-align: center;
   line-height: 2.2; /* For underline on hover. It wouldnt show otherwise idk */
@@ -519,8 +535,20 @@ footer .fab {
 /* ------------------------------- */
 /*               HOME              */
 /* ------------------------------- */
+/* Z indexes */
+.backdrop-square,
+.hero-image {
+  z-index: 0;
+}
 
+.homebanner,
+.homebrowse,
+.homebottom,
+.footer-container {
+  z-index: 2;
+}
 /* --------- MAIN CONTAINER -------------*/
+
 .home-container {
   display: grid;
   grid-template:
@@ -544,7 +572,6 @@ footer .fab {
   grid-row: 1 / span 2;
   background-position: 51%;
   height: 600px;
-  z-index: -1;
   overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
@@ -599,7 +626,8 @@ footer .fab {
   align-items: start;
   grid-gap: 10px 0;
 }
-.homebrowse h3 {
+.homebrowse h2 {
+  font-size: 2.5rem;
   grid-area: 1 / 1 / 4 / 4;
   height: 100%;
   background: rgb(20, 20, 20);
@@ -774,7 +802,6 @@ footer .fab {
   position: absolute;
   width: 488px;
   height: 488px;
-  z-index: -1;
   transform: matrix(0.74, -0.67, 0.67, 0.74, 0, 0);
   background: var(--blacker) 0% 0% no-repeat padding-box;
   box-shadow: 10px 10px 6px #00000029;
@@ -1002,6 +1029,10 @@ footer .fab {
   h3 {
     font-size: 3.5rem;
   }
+  .homebrowse h2 {
+    /* This used to be a h3, but I changed it to h2 since it's immediately after h1, and gave it the same size */
+    font-size: 3.5rem;
+  }
   p {
     font-size: 2rem;
   }
@@ -1067,7 +1098,7 @@ footer .fab {
   .homebanner p {
     max-width: 500px; /* For text wrapping */
   }
-  .homebrowse h3 {
+  .homebrowse h2 {
     padding-top: 20px;
   }
   .homebottom {
@@ -1093,7 +1124,7 @@ footer .fab {
     flex-basis: 100%; /* To make everything wrap */
     max-width: 562px;
   }
-  .homebottom-text h3 {
+  .homebottom-text h2 {
     align-self: flex-start;
     margin-bottom: 33px;
   }
@@ -1249,7 +1280,7 @@ footer .fab {
     height: 142px;
     width: 221px;
   }
-  .homebrowse h3 {
+  .homebrowse h2 {
     padding-top: 30px;
   }
   .cta {
@@ -1324,7 +1355,7 @@ footer .fab {
     justify-content: space-between;
     max-width: 1000px;
   }
-  .homebrowse h3 {
+  .homebrowse h2 {
     grid-area: 1 / 1 / 4 / 4;
     padding-top: 30px;
     height: initial;

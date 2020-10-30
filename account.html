@@ -20,107 +20,112 @@
     ></script>
   </head>
   <body>
-    <header>
-      <nav class="nav-container">
-        <!--Items are ordered as they appear on desktop, for tabbing and so as to not use tabindex because that is bad, or so I read (This was a puzzle to do while keeping it responsive)-->
-        <input id="dropdown-menu" type="checkbox" />
-        <input id="accountdrop" type="checkbox" />
-        <div class="header-backdrop"></div>
-        <label class="hamburger" for="dropdown-menu">
-          <i class="fas fa-bars"></i>
-        </label>
-        <a class="logo-parent" href="index.html"
-          ><!---adding size to vector to prevent it from occasionally covering the entire screen on load--><img
-            class="logo"
-            src="images/logovector.svg"
-            height="55px"
-            alt="SquareEyes Logo"
-        /></a>
-        <ul class="navbuttons nav-hide">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="films.html">Films</a></li>
-          <li><a href="categories.html">Categories</a></li>
-          <li><a href="latest.html">Latest</a></li>
-        </ul>
-        <div class="searchbar nav-hide">
-          <input
-            type="text"
-            name="search-bar"
-            title="Search Bar"
-            title="Search
+    <div class="page-container">
+      <header>
+        <nav class="nav-container">
+          <!--Items are ordered as they appear on desktop, for tabbing and so as to not use tabindex because that is bad, or so I read (This was a puzzle to do while keeping it responsive)-->
+          <input id="dropdown-menu" type="checkbox" />
+          <input id="accountdrop" type="checkbox" />
+          <div class="header-backdrop"></div>
+          <label class="hamburger" for="dropdown-menu">
+            <i class="fas fa-bars"></i>
+          </label>
+          <a class="logo-parent" href="index.html"
+            ><!---adding size to vector to prevent it from occasionally covering the entire screen on load--><img
+              class="logo"
+              src="images/logovector.svg"
+              height="55px"
+              alt="SquareEyes Logo"
+          /></a>
+          <ul class="navbuttons nav-hide">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="films.html">Films</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="latest.html">Latest</a></li>
+          </ul>
+          <div class="searchbar nav-hide">
+            <input
+              type="text"
+              name="search-bar"
+              title="Search Bar"
+              title="Search
           Bar"
-            placeholder="Search"
-          />
-          <a href="search.html"><i class="fas fa-search"></i></a>
-        </div>
-        <a class="signin redbutton" href="login.html">Sign In</a>
-        <!---In an ideal world this would be possible to activate by pressing enter-->
-        <label class="usersettings nav-hide" for="accountdrop"
-          ><img src="images/userglasses.svg" width="47px" alt="User Icon" /><i
-            class="fas fa-angle-down"
-          ></i
-          ><i class="fas fa-angle-up"></i
-        ></label>
-        <ul class="accountnav">
-          <li><a href="account.html">Account</a></li>
-          <li><a href="account.html">Support</a></li>
-          <li><a href="nopls.html">Sign Out</a></li>
-        </ul>
-        <hr class="nav-hide" />
-      </nav>
-    </header>
-    <main style="height: 80vh">REMOVE THE HEIGHT U DONKEY</main>
-    <footer class="footer-container">
-      <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
-      <div class="footer-bottom">
-        <ul class="footer-block">
-          <li class="footer-copyright">
-            <img
-              src="/images/footerglasses.svg"
-              alt="SquareEyes Icon"
-              width="60px"
+              placeholder="Search"
             />
-            <p>&copy; <small>SquareEyes, Inc. All rights reserved.</small></p>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-top">
-        <div class="footer-top-blocks">
-          <ul class="footer-block">
-            <li class="footer-li">
-              <p title="This is not a link">Filmmakers FAQ</p>
-            </li>
-            <li class="footer-li">
-              <p title="This is not a link">Submit Your Project</p>
-            </li>
+            <a href="search.html"><i class="fas fa-search"></i></a>
+          </div>
+          <a class="signin redbutton" href="login.html">Sign In</a>
+          <!---In an ideal world this would be possible to activate by pressing enter-->
+          <label class="usersettings nav-hide" for="accountdrop"
+            ><img src="images/userglasses.svg" width="47px" alt="User Icon" /><i
+              class="fas fa-angle-down"
+            ></i
+            ><i class="fas fa-angle-up"></i
+          ></label>
+          <ul class="accountnav">
+            <li><a href="account.html">Account</a></li>
+            <li><a href="account.html">Support</a></li>
+            <li><a href="nopls.html">Sign Out</a></li>
           </ul>
+          <hr class="nav-hide" />
+        </nav>
+      </header>
+      <main style="height: 80vh">REMOVE THE HEIGHT U DONKEY</main>
+      <footer class="footer-container">
+        <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
+        <div class="footer-bottom">
           <ul class="footer-block">
-            <li class="footer-li">
-              <p title="This is not a link">About Us</p>
-            </li>
-            <li class="footer-li">
-              <p title="This is not a link">Work Here</p>
-            </li>
-          </ul>
-          <ul class="footer-block">
-            <li class="footer-li social">
-              <i title="This is not a link" class="fab fa-facebook-square"></i>
-              <i title="This is not a link" class="fab fa-twitter-square"></i>
-            </li>
-            <li class="footer-li">
-              <p title="This is not a link">Contact Us</p>
+            <li class="footer-copyright">
+              <img
+                src="/images/footerglasses.svg"
+                alt="SquareEyes Icon"
+                width="60px"
+              />
+              <p>&copy; <small>SquareEyes, Inc. All rights reserved.</small></p>
             </li>
           </ul>
         </div>
-        <ul class="footer-top-inline">
-          <li class="footer-inline-li">
-            <p title="This is not a link">Terms of Service</p>
-          </li>
-          <li class="footer-inline-li">
-            <p title="This is not a link">Privacy Policy</p>
-          </li>
-        </ul>
-      </div>
-    </footer>
+        <div class="footer-top">
+          <div class="footer-top-blocks">
+            <ul class="footer-block">
+              <li class="footer-li">
+                <p title="This is not a link">Filmmakers FAQ</p>
+              </li>
+              <li class="footer-li">
+                <p title="This is not a link">Submit Your Project</p>
+              </li>
+            </ul>
+            <ul class="footer-block">
+              <li class="footer-li">
+                <p title="This is not a link">About Us</p>
+              </li>
+              <li class="footer-li">
+                <p title="This is not a link">Work Here</p>
+              </li>
+            </ul>
+            <ul class="footer-block">
+              <li class="footer-li social">
+                <i
+                  title="This is not a link"
+                  class="fab fa-facebook-square"
+                ></i>
+                <i title="This is not a link" class="fab fa-twitter-square"></i>
+              </li>
+              <li class="footer-li">
+                <p title="This is not a link">Contact Us</p>
+              </li>
+            </ul>
+          </div>
+          <ul class="footer-top-inline">
+            <li class="footer-inline-li">
+              <p title="This is not a link">Terms of Service</p>
+            </li>
+            <li class="footer-inline-li">
+              <p title="This is not a link">Privacy Policy</p>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

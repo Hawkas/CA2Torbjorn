@@ -20,207 +20,212 @@
     ></script>
   </head>
   <body>
-    <header>
-      <nav class="nav-container">
-        <!--Items are ordered as they appear on desktop, for tabbing and so as to not use tabindex because that is bad, or so I read (This was a puzzle to do while keeping it responsive)-->
-        <input id="dropdown-menu" type="checkbox" />
-        <input id="accountdrop" type="checkbox" />
-        <div class="header-backdrop"></div>
-        <label class="hamburger" for="dropdown-menu">
-          <i class="fas fa-bars"></i>
-        </label>
-        <a class="logo-parent" href="index.html"
-          ><!---adding size to vector to prevent it from occasionally covering the entire screen on load--><img
-            class="logo"
-            src="images/logovector.svg"
-            height="55px"
-            alt="SquareEyes Logo"
-        /></a>
-        <ul class="navbuttons nav-hide">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="films.html">Films</a></li>
-          <li><a href="categories.html">Categories</a></li>
-          <li><a href="latest.html">Latest</a></li>
-        </ul>
-        <div class="searchbar nav-hide">
-          <input
-            type="text"
-            name="search-bar"
-            title="Search Bar"
-            placeholder="Search"
-          />
-          <a href="search.html"><i class="fas fa-search"></i></a>
-        </div>
-        <a class="signin redbutton" href="login.html">Sign In</a>
-        <!---In an ideal world this would be possible to activate by pressing enter-->
-        <label class="usersettings nav-hide" for="accountdrop"
-          ><img src="images/userglasses.svg" width="47px" alt="User Icon" /><i
-            class="fas fa-angle-down"
-          ></i
-          ><i class="fas fa-angle-up"></i
-        ></label>
-        <ul class="accountnav">
-          <li><a href="account.html">Account</a></li>
-          <li><a href="account.html">Support</a></li>
-          <li><a href="nopls.html">Sign Out</a></li>
-        </ul>
-        <hr class="nav-hide" />
-      </nav>
-    </header>
-    <main class="home-container">
-      <div class="hero-image"></div>
-      <section class="homebanner">
-        <h1>Connecting Film-Lovers</h1>
-        <p>
-          SquareEyes allows filmmakers to share their creativity with audiences
-          all over the world. Enjoy our wide selection of films, or submit your
-          own.
-        </p>
-        <div class="bannerbuttons-container">
-          <a href="signupfork.html"
-            ><div class="redbutton cta">Become a Member</div></a
-          >
-          <a href="signupfilm.html"
-            ><div class="transbutton cta">Submit your Project</div></a
-          >
-        </div>
-      </section>
-      <div class="pagesplit"></div>
-      <section class="homebrowse">
-        <h3>Browse our Library</h3>
-        <ul class="browseflex">
-          <li>
-            <a class="browseimage dramas" href="films.html"
-              ><span>Dramas</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage docu" href="films.html"
-              ><span>Documentaries</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage action" href="films.html"
-              ><span>Action Films</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage comedy" href="films.html"
-              ><span>Comedies</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage animat" href="films.html"
-              ><span>Animations</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage artf" href="films.html"
-              ><span>Art Films</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage shortf" href="films.html"
-              ><span>Short Films</span></a
-            >
-          </li>
-          <li>
-            <a class="browseimage staffp" href="films.html"
-              ><span>Staff Picks</span></a
-            >
-          </li>
-        </ul>
-      </section>
-      <div class="backdrop-square top"></div>
-      <section class="section-passion homebottom">
-        <div class="passion">
-          <div class="homebottom-image">
-            <img src="/images/cameraman.jpg" alt="Man with a camera" />
-          </div>
-          <div class="homebottom-text">
-            <h2>Share your Passion.</h2>
-            <div>
-              <p>Publish your work to thousands of film-enthusiasts.</p>
-              <p>Leech off of thousands of gullible couch-potatoes.</p>
-              <p>Together we will rule the world.</p>
-            </div>
-            <a href="signupfilm.html">Pricing and Payment</a>
-          </div>
-        </div>
-      </section>
-      <div class="backdrop-square middle"></div>
-      <section class="section-learnmore homebottom">
-        <div class="learnmore">
-          <div class="homebottom-image">
-            <img
-              src="/images/happycinema.jpg"
-              alt="Crowded cinema of people presumably watching a movie"
+    <div class="page-container">
+      <header>
+        <nav class="nav-container">
+          <!--Items are ordered as they appear on desktop, for tabbing and so as to not use tabindex because that is bad, or so I read (This was a puzzle to do while keeping it responsive)-->
+          <input id="dropdown-menu" type="checkbox" />
+          <input id="accountdrop" type="checkbox" />
+          <div class="header-backdrop"></div>
+          <label class="hamburger" for="dropdown-menu">
+            <i class="fas fa-bars"></i>
+          </label>
+          <a class="logo-parent" href="index.html"
+            ><!---adding size to vector to prevent it from occasionally covering the entire screen on load--><img
+              class="logo"
+              src="images/logovector.svg"
+              height="55px"
+              alt="SquareEyes Logo"
+          /></a>
+          <ul class="navbuttons nav-hide">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="films.html">Films</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="latest.html">Latest</a></li>
+          </ul>
+          <div class="searchbar nav-hide">
+            <input
+              type="text"
+              name="search-bar"
+              title="Search Bar"
+              placeholder="Search"
             />
+            <a href="search.html"><i class="fas fa-search"></i></a>
           </div>
-          <div class="homebottom-text">
-            <h2>Support Filmmaking.</h2>
-            <div>
-              <p>Give the filmmaker money, they'll like that.</p>
-              <p>Watch movies and live a decadent lifestyle.</p>
-              <p>Allow us to ruin your schedule with entertainment.</p>
+          <a class="signin redbutton" href="login.html">Sign In</a>
+          <!---In an ideal world this would be possible to activate by pressing enter-->
+          <label class="usersettings nav-hide" for="accountdrop"
+            ><img src="images/userglasses.svg" width="47px" alt="User Icon" /><i
+              class="fas fa-angle-down"
+            ></i
+            ><i class="fas fa-angle-up"></i
+          ></label>
+          <ul class="accountnav">
+            <li><a href="account.html">Account</a></li>
+            <li><a href="account.html">Support</a></li>
+            <li><a href="nopls.html">Sign Out</a></li>
+          </ul>
+          <hr class="nav-hide" />
+        </nav>
+      </header>
+      <main class="home-container">
+        <div class="hero-image"></div>
+        <section class="homebanner">
+          <h1>Connecting Film-Lovers</h1>
+          <p>
+            SquareEyes allows filmmakers to share their creativity with
+            audiences all over the world. Enjoy our wide selection of films, or
+            submit your own.
+          </p>
+          <div class="bannerbuttons-container">
+            <a href="signupfork.html"
+              ><div class="redbutton cta">Become a Member</div></a
+            >
+            <a href="signupfilm.html"
+              ><div class="transbutton cta">Submit your Project</div></a
+            >
+          </div>
+        </section>
+        <div class="pagesplit"></div>
+        <section class="homebrowse">
+          <h2>Browse our Library</h2>
+          <ul class="browseflex">
+            <li>
+              <a class="browseimage dramas" href="films.html"
+                ><span>Dramas</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage docu" href="films.html"
+                ><span>Documentaries</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage action" href="films.html"
+                ><span>Action Films</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage comedy" href="films.html"
+                ><span>Comedies</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage animat" href="films.html"
+                ><span>Animations</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage artf" href="films.html"
+                ><span>Art Films</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage shortf" href="films.html"
+                ><span>Short Films</span></a
+              >
+            </li>
+            <li>
+              <a class="browseimage staffp" href="films.html"
+                ><span>Staff Picks</span></a
+              >
+            </li>
+          </ul>
+        </section>
+        <div class="backdrop-square top"></div>
+        <section class="section-passion homebottom">
+          <div class="passion">
+            <div class="homebottom-image">
+              <img src="/images/cameraman.jpg" alt="Man with a camera" />
             </div>
-            <a href="signupreg.html">Learn More</a>
+            <div class="homebottom-text">
+              <h2>Share your Passion.</h2>
+              <div>
+                <p>Publish your work to thousands of film-enthusiasts.</p>
+                <p>Leech off of thousands of gullible couch-potatoes.</p>
+                <p>Together we will rule the world.</p>
+              </div>
+              <a href="signupfilm.html">Pricing and Payment</a>
+            </div>
           </div>
-        </div>
-      </section>
-      <div class="backdrop-square bottom"></div>
-    </main>
-    <footer class="footer-container">
-      <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
-      <div class="footer-bottom">
-        <ul class="footer-block">
-          <li class="footer-copyright">
-            <img
-              src="/images/footerglasses.svg"
-              alt="SquareEyes Icon"
-              width="60px"
-            />
-            <p>&copy; <small>SquareEyes, Inc. All rights reserved.</small></p>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-top">
-        <div class="footer-top-blocks">
+        </section>
+        <div class="backdrop-square middle"></div>
+        <section class="section-learnmore homebottom">
+          <div class="learnmore">
+            <div class="homebottom-image">
+              <img
+                src="/images/happycinema.jpg"
+                alt="Crowded cinema of people presumably watching a movie"
+              />
+            </div>
+            <div class="homebottom-text">
+              <h2>Support Filmmaking.</h2>
+              <div>
+                <p>Give the filmmaker money, they'll like that.</p>
+                <p>Watch movies and live a decadent lifestyle.</p>
+                <p>Allow us to ruin your schedule with entertainment.</p>
+              </div>
+              <a href="signupreg.html">Learn More</a>
+            </div>
+          </div>
+        </section>
+        <div class="backdrop-square bottom"></div>
+      </main>
+      <footer class="footer-container">
+        <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
+        <div class="footer-bottom">
           <ul class="footer-block">
-            <li class="footer-li">
-              <p title="This is not a link">Filmmakers FAQ</p>
-            </li>
-            <li class="footer-li">
-              <p title="This is not a link">Submit Your Project</p>
-            </li>
-          </ul>
-          <ul class="footer-block">
-            <li class="footer-li">
-              <p title="This is not a link">About Us</p>
-            </li>
-            <li class="footer-li">
-              <p title="This is not a link">Work Here</p>
-            </li>
-          </ul>
-          <ul class="footer-block">
-            <li class="footer-li social">
-              <i title="This is not a link" class="fab fa-facebook-square"></i>
-              <i title="This is not a link" class="fab fa-twitter-square"></i>
-            </li>
-            <li class="footer-li">
-              <p title="This is not a link">Contact Us</p>
+            <li class="footer-copyright">
+              <img
+                src="/images/footerglasses.svg"
+                alt="SquareEyes Icon"
+                width="60px"
+              />
+              <p>&copy; <small>SquareEyes, Inc. All rights reserved.</small></p>
             </li>
           </ul>
         </div>
-        <ul class="footer-top-inline">
-          <li class="footer-inline-li">
-            <p title="This is not a link">Terms of Service</p>
-          </li>
-          <li class="footer-inline-li">
-            <p title="This is not a link">Privacy Policy</p>
-          </li>
-        </ul>
-      </div>
-    </footer>
+        <div class="footer-top">
+          <div class="footer-top-blocks">
+            <ul class="footer-block">
+              <li class="footer-li">
+                <p title="This is not a link">Filmmakers FAQ</p>
+              </li>
+              <li class="footer-li">
+                <p title="This is not a link">Submit Your Project</p>
+              </li>
+            </ul>
+            <ul class="footer-block">
+              <li class="footer-li">
+                <p title="This is not a link">About Us</p>
+              </li>
+              <li class="footer-li">
+                <p title="This is not a link">Work Here</p>
+              </li>
+            </ul>
+            <ul class="footer-block">
+              <li class="footer-li social">
+                <i
+                  title="This is not a link"
+                  class="fab fa-facebook-square"
+                ></i>
+                <i title="This is not a link" class="fab fa-twitter-square"></i>
+              </li>
+              <li class="footer-li">
+                <p title="This is not a link">Contact Us</p>
+              </li>
+            </ul>
+          </div>
+          <ul class="footer-top-inline">
+            <li class="footer-inline-li">
+              <p title="This is not a link">Terms of Service</p>
+            </li>
+            <li class="footer-inline-li">
+              <p title="This is not a link">Privacy Policy</p>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
