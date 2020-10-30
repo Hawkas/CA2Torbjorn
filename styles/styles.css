@@ -29,7 +29,7 @@ body {
 }
 .page-container {
   width: 100vw;
-  max-width: 2159px; /* Just so everything doesn't expand apart and break when zooming out. This is the width on my 4k monitor, and going beyond this things start falling apart. As an added bonus you can now zoom out if you think it's too big, which it is (at least home lol) */
+  max-width: 2159px; /* Just so everything doesn't expand apart and break when zooming out. This is the width on my 4k monitor, and going beyond this things would start falling apart . As an added bonus you can now zoom out if you think it's too big, which it is (I'd probably view it at 70% honestly. Wish I could work out how to make it like that by default) */
   overflow-x: hidden; /* Screw horizontal scrollbars */
   min-height: 100%;
   background-color: var(--black);
