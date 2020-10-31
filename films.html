@@ -68,7 +68,208 @@
           <hr class="nav-hide" />
         </nav>
       </header>
-      <main>section</main>
+      <main class="films-container">
+        <section class="showcase">
+          <!---Grid containing arrows on each side, with image element inbetween and the overlay on top. Shouldnt need more than columns and item alignment -->
+          <div class="showcase-image">
+            <img
+              src="/images/films/climber.jpg"
+              alt="Silhuette of man climbing a 90 degree mountain wall"
+            /><!--I'm adding width and height to the html -->
+          </div>
+          <!--*showcase grid item 1-->
+          <div class="gradient"></div>
+          <!--*showcase grid item 2-->
+          <i class="fas fa-chevron-left"></i>
+          <!--*showcase grid item 3-->
+          <div class="showcase-overlay">
+            <!--*showcase grid item 4-->
+            <div class="showcase-overlay-flex">
+              <!--Flexbox for left-side menu-->
+              <div class="showcase-overlay-text">
+                <h1>Rockclimber</h1>
+                <span><small>by</small> Reynold Laufon</span>
+                <p>This man climbs rocks for a living.</p>
+              </div>
+              <a class="transbutton purchase" href="purchase.html"
+                ><i class="fas fa-play"></i>Watch Now</a
+              >
+            </div>
+          </div>
+          <div class="showcase-ellipsis">
+            <!--*showcase grid item 4, Flexbox for ellipsis-->
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+          </div>
+          <i class="fas fa-chevron-right"></i
+          ><!--*showcase grid item 5-->
+        </section>
+        <!--I wanted to use css background-image for these but since it's part of the 'content' I figured it should be in the HTML.  I've commented on each element for me to remember what I was planning, as I tend to forget why I nested elements or set things up a certain way later on. I'm also nesting a bunch of grids which can get out of hand rather easily-->
+        <section class="film-list-display">
+          <div class="film-list staff-pick">
+            <!--^Outer container for 2 children. Category title on top, , film container underneath. Flex row-->
+            <a href="categories.html"
+              ><h2>Staff Picks <span>&gt;</span></h2></a
+            >
+            <ul class="film-blocks">
+              <!--^Flexbox that will contain 4x films and wrap/scale as needed-->
+              <li class="film-card film-1">
+                <!--^Item card, image should cover a portion, leaving a part of the block element clear for text underneath. Use grid to allow overlay to cover and to more easily manipulate for breakpoints-->
+                <div class="film-imagebox">
+                  <!--*^film-card grid item 1, Image container -->
+                  <img
+                    src="images/films/mountains.jpg"
+                    alt="Mountains covered by clouds, with a person on a rock staring out towards the horizon"
+                  />
+                </div>
+                <div class="film-overlay-grid">
+                  <!--*^film-card Grid item 2 - Nested grid container for elements that cover the image-->
+                  <div class="plus-button film-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <!--^film-overlay grid item 1-->
+                  <div class="film-big-buttons">
+                    <a href="purchase.html" class="play film-button">
+                      <i class="fas fa-play"></i>
+                    </a>
+                    <a href="purchase.html" class="details film-button"
+                      >Details</a
+                    >
+                  </div>
+                  <div class="film-statistic">
+                    <small>378</small><i class="fas fa-eye"></i
+                    ><small>01:23:45</small><i class="fas fa-clock"></i>
+                  </div>
+                  <!--^film-overlay grid item 2, Film views and duration. Position at bottom with gradient. Use flexbox to position-->
+                </div>
+                <div class="film-textbox">
+                  <!--*film-card grid item 3, Use flexbox to align items in a row-flow. make small occupy entire width of its cell to wrap-->
+                  <h3>Lorem Ipsum</h3>
+                  <small>by Gustav Frisbee</small>
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                    ><i class="far fa-star"></i>
+                  </div>
+                  <span class="pricetag">&dollar;10</span>
+                </div>
+              </li>
+              <li class="film-card film-2">
+                <div class="film-imagebox">
+                  <img
+                    src="images/films/mountains.jpg"
+                    alt="Mountains covered by clouds, with a person on a rock staring out towards the horizon"
+                  />
+                </div>
+                <div class="film-overlay-grid">
+                  <div class="plus-button film-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="film-big-buttons">
+                    <a href="purchase.html" class="play film-button">
+                      <i class="fas fa-play"></i>
+                    </a>
+                    <a href="purchase.html" class="details film-button"
+                      >Details</a
+                    >
+                  </div>
+                  <div class="film-statistic">
+                    <small>378</small><i class="fas fa-eye"></i
+                    ><small>01:23:45</small><i class="fas fa-clock"></i>
+                  </div>
+                </div>
+                <div class="film-textbox">
+                  <h3>Lorem Ipsum</h3>
+                  <small>by Gustav Frisbee</small>
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                    ><i class="far fa-star"></i>
+                  </div>
+                  <span class="pricetag">&dollar;10</span>
+                </div>
+              </li>
+              <li class="film-card film-3">
+                <div class="film-imagebox">
+                  <img
+                    src="images/films/mountains.jpg"
+                    alt="Mountains covered by clouds, with a person on a rock staring out towards the horizon"
+                  />
+                </div>
+                <div class="film-overlay-grid">
+                  <div class="plus-button film-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="film-big-buttons">
+                    <a href="purchase.html" class="play film-button">
+                      <i class="fas fa-play"></i>
+                    </a>
+                    <a href="purchase.html" class="details film-button"
+                      >Details</a
+                    >
+                  </div>
+                  <div class="film-statistic">
+                    <small>378</small><i class="fas fa-eye"></i
+                    ><small>01:23:45</small><i class="fas fa-clock"></i>
+                  </div>
+                </div>
+                <div class="film-textbox">
+                  <h3>Lorem Ipsum</h3>
+                  <small>by Gustav Frisbee</small>
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                    ><i class="far fa-star"></i>
+                  </div>
+                  <span class="pricetag">&dollar;10</span>
+                </div>
+              </li>
+              <li class="film-card film-4">
+                <div class="film-imagebox">
+                  <img
+                    src="images/films/mountains.jpg"
+                    alt="Mountains covered by clouds, with a person on a rock staring out towards the horizon"
+                  />
+                </div>
+                <div class="film-overlay-grid">
+                  <div class="plus-button film-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="film-big-buttons">
+                    <a href="purchase.html" class="play film-button">
+                      <i class="fas fa-play"></i>
+                    </a>
+                    <a href="purchase.html" class="details film-button"
+                      >Details</a
+                    >
+                  </div>
+                  <div class="film-statistic">
+                    <small>378</small><i class="fas fa-eye"></i
+                    ><small>01:23:45</small><i class="fas fa-clock"></i>
+                  </div>
+                </div>
+                <div class="film-textbox">
+                  <h3>Lorem Ipsum</h3>
+                  <small>by Gustav Frisbee</small>
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                    ><i class="far fa-star"></i>
+                  </div>
+                  <span class="pricetag">&dollar;10</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
       <footer class="footer-container">
         <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
         <div class="footer-bottom">

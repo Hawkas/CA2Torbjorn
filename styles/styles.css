@@ -24,12 +24,14 @@ html {
   --montserrat: "Montserrat", Verdana, sans-serif;
 }
 body {
+  overflow-x: hidden;
   background-color: var(--blacker);
   height: 100%;
+  margin: 0;
 }
 .page-container {
   width: 100vw;
-  max-width: 2159px; /* Just so everything doesn't expand apart and break when zooming out. This is the width on my 4k monitor, and going beyond this things would start falling apart . As an added bonus you can now zoom out if you think it's too big, which it is (I'd probably view it at 70% honestly. Wish I could work out how to make it like that by default) */
+  max-width: 2159px; /* Just so everything doesn't expand apart and break when zooming out. This is the width on my 4k monitor. Now it is possible to zoom out (I'd probably view it at 70% honestly. Wish I could work out how to make it like that by default) */
   overflow-x: hidden; /* Screw horizontal scrollbars */
   min-height: 100%;
   background-color: var(--black);
@@ -62,7 +64,9 @@ p {
   margin: 0;
   line-height: 1.6;
 }
-
+main {
+  height: 100%;
+}
 a {
   text-decoration: none;
   color: white;
@@ -70,6 +74,7 @@ a {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
 }
 .redbutton {
   background-color: var(--red);
@@ -142,7 +147,6 @@ header {
   width: 100vw; /* --^--- */
   max-width: 2159px; /* --^--*/
   z-index: 5;
-  overflow-y: auto; /* in case someone wants to squeeze the window height below 500px for whatever reason */
   justify-items: start;
   align-items: start;
   pointer-events: none; /* To make transparent areas of the grid click-through when it expands */
@@ -182,6 +186,7 @@ hr.nav-hide {
   grid-row: 1 / 2;
   height: 80px;
   width: 100%;
+  max-width: min(100vw, 2159px);
   border-bottom: 2px solid var(--transwhite);
 }
 .logo-parent {
@@ -834,10 +839,278 @@ footer .fab {
 /* ------------------------------- */
 
 /*-------- MAIN --------*/
-/*-------- MAIN END-----*/
+.films-container p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.showcase span {
+  margin-left: 4px;
+  font-size: 1.2rem;
+  flex: 1 1 100%;
+}
+.showcase small {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
 
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
+.films-container {
+  display: grid;
+  padding: 0;
+  grid-template-rows: 700px auto;
+  grid-template-columns: 100%;
+  grid-gap: min(15vh, 220px) 0;
+}
+.showcase {
+  grid-row: 1 / 2;
+  margin-top: 75px;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: [left]14px 16px [leftcenter] repeat(3, [center] 1fr) [rightcenter] 16px 14px[right];
+  grid-template-rows: [top] 150px 175px 230px auto [bottom];
+  height: min(61vh, 658px);
+  box-shadow: 0 5px 6px var(--transblacker);
+}
+
+.gradient {
+  grid-area: 2 / left / bottom / right;
+}
+.showcase-image {
+  grid-area: top / left / bottom / right;
+  width: min(100vw, 1920px);
+  height: min(61vh, 658px);
+  overflow: hidden;
+}
+.showcase .fas.fa-chevron-left {
+  align-self: center;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.showcase .fas.fa-chevron-right {
+  align-self: center;
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+.showcase-ellipsis {
+  grid-column: left / right;
+  grid-row: 5 / 4;
+  align-self: end;
+  justify-self: center;
+}
+.showcase-overlay {
+  grid-column: 3 / 6;
+  grid-row: 2 / 4;
+  justify-self: start;
+  align-self: start;
+  height: 100%;
+}
+.gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 20%,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.showcase-image img {
+  object-fit: cover;
+  object-position: 65% -450px;
+  height: 1280px;
+  width: min(100vw, 1920px);
+}
+
+.showcase .fas.fa-chevron-right,
+.showcase .fas.fa-chevron-left {
+  font-size: 25px;
+  text-shadow: 1px 0 2px black;
+}
+.showcase-ellipsis {
+  margin-bottom: 15px;
+  font-size: 12px;
+  width: 90px;
+  color: var(--black);
+  text-shadow: 1px 0 5px var(--transblacker);
+}
+.showcase-ellipsis i:nth-child(1) {
+  color: white;
+}
+
+.showcase-overlay-flex {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+.showcase-overlay-text {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  white-space: nowrap;
+}
+.showcase-overlay-text p {
+  margin-top: 20px;
+  align-self: flex-end;
+}
+.transbutton.purchase {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  width: auto;
+  padding: 15px 30px;
+}
+.showcase .fas.fa-play {
+  padding-right: 15px;
+}
+.film-list {
+  display: flex;
+  flex-flow: column;
+  margin: 30px;
+}
+
+.film-blocks {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  align-content: space-;
+  justify-content: space-between;
+}
+
+.film-card {
+  width: min(83.333vw, 400px);
+  height: min(40vw, 645px);
+  min-height: 500px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background-color: var(--black);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
+    -5px -5px 10px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: [left]repeat(4, 1fr) [right];
+}
+.film-imagebox {
+  grid-area: 1 / left / 4 / right;
+}
+.film-imagebox img {
+  object-fit: cover;
+  object-position: 50% 100%;
+  width: 100%;
+  height: 100%;
+}
+.film-overlay-grid {
+  grid-area: 1 / left / 4 / right;
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-areas:
+    "plus"
+    "buttons"
+    "stats";
+  justify-items: center;
+  align-items: center;
+}
+
+.film-big-buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-flow: column;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.film-button {
+  background-color: rgba(20, 20, 20, 0.5);
+  border-radius: 3px;
+  box-shadow: 3px 3px 6px rgba(20, 20, 20, 0.5);
+  padding: 15px 20px;
+  text-align: center;
+}
+.film-overlay-grid .plus-button {
+  grid-area: plus;
+  padding: 10px 15px;
+  align-self: start;
+  justify-self: end;
+  margin: 15px 15px;
+}
+.play.film-button {
+  font-size: 3rem;
+}
+.details {
+  font-size: 1.8rem;
+  padding: 5px 20px;
+  margin-top: 5px;
+}
+.film-button:hover,
+.film-button:focus {
+  background-color: var(--transblacker);
+}
+.play:hover,
+.play:focus {
+  color: var(--red);
+  text-shadow: 1px 1px 6px var(--blacker);
+}
+.film-statistic {
+  grid-area: stats;
+  text-align: center;
+  height: 75px;
+  font-family: var(--roboto);
+  align-self: end;
+  justify-self: stretch;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  align-content: space-around;
+  align-items: center;
+  text-shadow: 1px 1px 6px var(--blacker);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 33%,
+    rgba(0, 0, 0, 0.5) 66%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.film-statistic .fas {
+  font-size: 2.2rem;
+  margin-top: 10px;
+  flex: 0 1 40px;
+}
+.film-statistic .small {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.film-textbox {
+  width: 100%;
+  height: 100%;
+  grid-area: 4 / left / 5 / right;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+}
+.film-textbox small {
+  flex: 1 1 100%;
+  align-self: flex-start;
+  padding-left: 3px;
+}
+.film-textbox h3 {
+  margin: 0;
+  flex: 1 1 100%;
+}
+.film-textbox .pricetag {
+  margin-left: auto;
+}
+
+/*-------- MAIN END-----*/
 
 /* ------------------------------- */
 /*            FILMS END            */
@@ -1172,6 +1445,72 @@ footer .fab {
   /*-------- HOME END-----*/
 
   /*-------- FILMS --------*/
+  .films-container p {
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+  .showcase span {
+    font-size: 1.4rem;
+    flex: 1 1 100%;
+  }
+  .showcase small {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .films-container h1,
+  .films-container h2 {
+    font-size: 4rem;
+  }
+
+  .showcase {
+    width: min(100vw, 1920px);
+    display: grid;
+    grid-template-columns: [left]14px 16px [leftcenter] repeat(3, [center] 1fr) [rightcenter] 16px 14px[right];
+    grid-template-rows: [top]min(61vh, 658px) [bottom];
+    height: min(61vh, 658px);
+  }
+
+  .showcase-image {
+    grid-area: top / left / bottom / right;
+    width: min(100vw, 1920px);
+    height: min(61vh, 658px);
+    overflow: hidden;
+  }
+  .gradient {
+    height: min(61vh, 658px);
+    grid-area: 1 / left / bottom / right;
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0.9) 60%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+
+  .showcase .fas.fa-chevron-left {
+    align-self: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .showcase .fas.fa-chevron-right {
+    align-self: center;
+    grid-column: 6 / 7;
+    grid-row: 1 / 2;
+  }
+  .showcase-ellipsis {
+    grid-row: 1;
+    align-self: end;
+    justify-self: center;
+  }
+  .showcase-overlay {
+    margin-left: 20px;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    justify-self: start;
+    align-self: start;
+    height: 100%;
+  }
   /*-------- FILMS END-----*/
 
   /*-------- SEARCH --------*/
@@ -1304,6 +1643,21 @@ footer .fab {
   /*-------- HOME END-----*/
 
   /*-------- FILMS --------*/
+  .showcase {
+    grid-template-columns: [left]30px 16px [leftcenter] repeat(3, [center] 1fr) [rightcenter] 16px 30px[right];
+  }
+  .showcase-overlay {
+    margin-left: 30px;
+  }
+  .gradient {
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(0, 0, 0, 0.9) 60%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+
   /*-------- FILMS END-----*/
 
   /*-------- SEARCH --------*/
