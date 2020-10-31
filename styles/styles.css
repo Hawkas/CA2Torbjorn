@@ -878,7 +878,7 @@ footer .fab {
 }
 .showcase-image {
   grid-area: top / left / bottom / right;
-  width: min(100vw, 1920px);
+  width: min(100vw, 2159px);
   height: min(61vh, 658px);
   overflow: hidden;
 }
@@ -920,7 +920,7 @@ footer .fab {
   object-fit: cover;
   object-position: 65% -450px;
   height: 1280px;
-  width: min(100vw, 1920px);
+  width: min(100vw, 2159px);
 }
 
 .showcase .fas.fa-chevron-right,
@@ -974,13 +974,17 @@ footer .fab {
   flex-flow: column;
   margin: 30px;
 }
+.film-list > a {
+  align-self: center;
+  margin-bottom: 30px;
+}
 
 .film-blocks {
   display: flex;
   flex-flow: row wrap;
   align-items: baseline;
   align-content: space-;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .film-card {
@@ -1464,7 +1468,7 @@ footer .fab {
   }
 
   .showcase {
-    width: min(100vw, 1920px);
+    width: min(100vw, 2159px);
     display: grid;
     grid-template-columns: [left]14px 16px [leftcenter] repeat(3, [center] 1fr) [rightcenter] 16px 14px[right];
     grid-template-rows: [top]min(61vh, 658px) [bottom];
@@ -1473,7 +1477,7 @@ footer .fab {
 
   .showcase-image {
     grid-area: top / left / bottom / right;
-    width: min(100vw, 1920px);
+    width: min(100vw, 2159px);
     height: min(61vh, 658px);
     overflow: hidden;
   }
