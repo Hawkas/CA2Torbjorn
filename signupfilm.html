@@ -62,13 +62,71 @@
           ></label>
           <ul class="accountnav">
             <li><a href="account.html">Account</a></li>
-            <li><a href="account.html">Support</a></li>
-            <li><a href="nopls.html">Sign Out</a></li>
+            <li>
+              <a href="account.html" title="No one works here it's all fake"
+                >Support</a
+              >
+            </li>
+            <li>
+              <a href=" " title="You're not logged in">Sign Out</a>
+            </li>
           </ul>
           <hr class="nav-hide" />
         </nav>
       </header>
-      <main style="height: 80vh">REMOVE THE HEIGHT U DONKEY</main>
+      <main class="signup-container film">
+        <div class="signup-background"></div>
+        <div class="form-grid-item">
+          <form class="form-flex">
+            <h1>Sign Up</h1>
+            <fieldset class="textform signup filmmaker">
+              <div class="input-wrap">
+                <label for="fullname">Full Name</label>
+                <input
+                  id="fullname"
+                  class="input-textbox"
+                  type="text"
+                  name="fullname"
+                />
+              </div>
+              <div class="input-wrap">
+                <label for="email">Email</label
+                ><input id="email" type="email" name="email" />
+              </div>
+              <div class="input-wrap">
+                <label for="password">Password</label>
+
+                <input
+                  type="password"
+                  id="password"
+                  class="input-textbox"
+                  name="password"
+                />
+              </div>
+              <div class="input-wrap">
+                <label for="password-repeat">Repeat Password</label
+                ><input
+                  type="password"
+                  id="password-repeat"
+                  class="input-textbox"
+                  name="password-repeat"
+                />
+              </div>
+              <div class="form-checkbox">
+                <input
+                  type="checkbox"
+                  id="termsofuse"
+                  name="termsofuse"
+                /><label for="termsofuse">I accept the terms of use</label>
+              </div>
+              <a href="films.html" class="bluebutton submit">SUBMIT</a>
+              <small
+                >Already have an account? <a href="login.html">Log In</a></small
+              >
+            </fieldset>
+          </form>
+        </div>
+      </main>
       <footer class="footer-container">
         <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
         <div class="footer-bottom">

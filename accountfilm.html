@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Sign Up to Watch - SquareEyes</title>
+    <title>Submit your Project for review - SquareEyes</title>
     <meta
       name="description"
       content="SquareEyes is a video streaming website for independent filmmakers to stream their videos on a pay-per-view basis"
@@ -48,6 +48,8 @@
               type="text"
               name="search-bar"
               title="Search Bar"
+              title="Search
+          Bar"
               placeholder="Search"
             />
             <a href="search.html"><i class="fas fa-search"></i></a>
@@ -74,57 +76,46 @@
           <hr class="nav-hide" />
         </nav>
       </header>
-      <main class="signup-container">
-        <div class="signup-background"></div>
-        <div class="form-grid-item">
-          <form class="form-flex">
-            <h1>Sign Up</h1>
-            <fieldset class="textform signup watcher">
-              <div class="input-wrap">
-                <label for="fullname">Full Name</label>
-                <input
-                  id="fullname"
-                  class="input-textbox"
-                  type="text"
-                  name="fullname"
-                />
-              </div>
-              <div class="input-wrap">
-                <label for="email">Email</label
-                ><input id="email" type="email" name="email" />
-              </div>
-              <div class="input-wrap">
-                <label for="password">Password</label>
+      <main class="account-container">
+        <div class="account-topbar">
+          <h1 class="content-title">Account Settings</h1>
+          <div class="account-tab">
+            <a href="account.html " class="regular-tab">Regular User</a>
+            <a href="accountfilm.html" class="filmmaker-tab active">
+              Filmmaker </a
+            ><!--Both of these account pages were done hastily and by copy and pasting lots. Very bad.-->
+          </div>
+        </div>
+        <div class="regular-user film-user">
+          <section class="account-profile maker">
+            <h2>Upload</h2>
+            <ul class="profile-left profile-list">
+              <li>Film Name</li>
+              <li>Actors/Actresses</li>
+              <li>Synopsis</li>
+              <li>Genre Tags</li>
+              <li>Image Poster</li>
+            </ul>
+            <ul class="profile-right profile-list maker">
+              <li>
+                <span>Lorem Ipsum</span
+                ><!-- Would've made this a form but I just finished it quick because time was running out-->
+              </li>
 
-                <input
-                  type="password"
-                  id="password"
-                  class="input-textbox"
-                  name="password"
-                />
-              </div>
-              <div class="input-wrap">
-                <label for="password-repeat">Repeat Password</label
-                ><input
-                  type="password"
-                  id="password-repeat"
-                  class="input-textbox"
-                  name="password-repeat"
-                />
-              </div>
-              <div class="form-checkbox">
-                <input
-                  type="checkbox"
-                  id="termsofuse"
-                  name="termsofuse"
-                /><label for="termsofuse">I accept the terms of use</label>
-              </div>
-              <a href="films.html" class="redbutton submit">SUBMIT</a>
-              <small
-                >Already have an account? <a href="login.html">Log In</a></small
-              >
-            </fieldset>
-          </form>
+              <li><span>O.J. Simpson</span></li>
+
+              <li><span>Runningback doing what he's best at</span></li>
+
+              <li><span>Documentary</span></li>
+
+              <li><span>thumbnail.jpg</span></li>
+            </ul>
+          </section>
+          <a href="thanks.html"
+            ><div class="bluebutton signouts">
+              <i class="fas fa-upload"></i>Upload
+            </div></a
+          >
         </div>
       </main>
       <footer class="footer-container">

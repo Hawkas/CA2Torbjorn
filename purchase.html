@@ -62,13 +62,304 @@
           ></label>
           <ul class="accountnav">
             <li><a href="account.html">Account</a></li>
-            <li><a href="account.html">Support</a></li>
-            <li><a href="nopls.html">Sign Out</a></li>
+            <li>
+              <a href="account.html" title="No one works here it's all fake"
+                >Support</a
+              >
+            </li>
+            <li>
+              <a href=" " title="You're not logged in">Sign Out</a>
+            </li>
           </ul>
           <hr class="nav-hide" />
         </nav>
       </header>
-      <main style="height: 80vh">REMOVE THE HEIGHT U DONKEY</main>
+      <main class="purchase-main-grid">
+        <div class="details-container">
+          <!--Main grid, should be a solid block centered on screen. use max(63.229vw, 360px) with to ensure it scales fluidly-->
+          <section class="purchase-top-block details-griditem-1">
+            <div class="purchase-image-box">
+              <!--This layer will be a grid item-->
+              <div class="aspect-padding">
+                <!--This layer will be relative position-->
+                <!--I found this way of maintaining aspect ratio on csstricks https://css-tricks.com/aspect-ratio-boxes/-->
+                <img
+                  src="/images/films/mountains.jpg"
+                  alt="Movie Poster Image"
+                /><!--Absolute position-->
+              </div>
+            </div>
+            <div class="purchase-title-flex">
+              <h1>Lorem Ipsum</h1>
+              <div class="year-duration">
+                <span>2020</span><span>35 minutes</span>
+              </div>
+              <div class="user-reviews top-info">
+                <div class="rating-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i
+                  ><i class="far fa-star"></i>
+                </div>
+                <div class="review-count">
+                  <i class="fas fa-user"></i><span>123</span>
+                </div>
+              </div>
+              <a href="shortfilms.html">Short Film</a>
+            </div>
+
+            <div class="listbutton transbutton">Add to List</div>
+            <a href="thanks.html" class="buybutton redbutton"
+              >&dollar; 10.00 Purchase</a
+            >
+            <div class="synopsis">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Placeat quae provident beatae error atque officiis aliquid sed
+                asperiores ducimus? Non doloremque alias voluptatem eum
+                perspiciatis, numquam nulla ducimus necessitatibus saepe quod
+                repellat labore impedit iure blanditiis est reiciendis dolorum
+                aliquid.
+              </p>
+            </div>
+          </section>
+          <!--use grid and pair items that belong together with flexbox-->
+          <section class="purchase-cast-block details-griditem-2">
+            <h2>Cast</h2>
+            <div class="actors">
+              <h3>Actors</h3>
+              <span>Abraham Lincoln,</span>
+              <span>Roosevelt,</span>
+              <span>Sacha Baron Cohen</span>
+            </div>
+            <div class="director">
+              <h3>Director</h3>
+              <span>Michael from Vsauce</span>
+            </div>
+          </section>
+          <!--Flexbox is enough-->
+          <section class="purchase-review-block details-griditem-3">
+            <h2>Reviews</h2>
+            <div class="review-statistic-left">
+              <span>3.5</span>
+              <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i
+                ><i class="far fa-star"></i>
+              </div>
+              <div class="review-count">
+                <i class="fas fa-user"></i><small>123</small>
+              </div>
+            </div>
+            <div class="review-bar-flex">
+              <div class="review-bar review-5">
+                <span>5</span>
+                <div class="bar-border">
+                  <div class="bar-fill fill-5"></div>
+                </div>
+              </div>
+              <div class="review-bar review-4">
+                <span>4</span>
+                <div class="bar-border">
+                  <div class="bar-fill fill-4"></div>
+                </div>
+              </div>
+              <div class="review-bar review-3">
+                <span>3</span>
+                <div class="bar-border">
+                  <div class="bar-fill fill-3"></div>
+                </div>
+              </div>
+              <div class="review-bar review-2">
+                <span>2</span>
+                <div class="bar-border">
+                  <div class="bar-fill fill-2"></div>
+                </div>
+              </div>
+              <div class="review-bar review-1">
+                <span>1</span>
+                <div class="bar-border">
+                  <div class="bar-fill fill-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="transbutton write">
+              <i class="fas fa-edit"></i>Write a Review
+            </div>
+          </section>
+          <!--Flexbox and nested flexboxes-->
+          <section class="review-comment-block details-griditem-4">
+            <ul class="review-list-block">
+              <li class="reviewer-list-item">
+                <div class="reviewer-info">
+                  <div class="reviewer-image-box">
+                    <div class="aspect-padding reviewer">
+                      <img
+                        src="/images/films/hazmat.jpg"
+                        alt="Reviewer Avatar"
+                      />
+                    </div>
+                  </div>
+                  <div class="reviewer-name">
+                    <span>Hazmathias</span>
+                    <div class="review-tiny">
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i
+                        ><i class="fas fa-star-half-alt"></i
+                        ><i class="far fa-star"></i></span
+                      ><span class="date">November 1, 2020</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-comment">
+                  <span
+                    >This movie was complete trash. Or that's what I assume
+                    anyway, as I couldn't even watch the damn thing, as this
+                    site doesn't even have a video player. What is up with this
+                    website anyway? I've looked through the CSS and it's a
+                    complete dumpsterfire. Whoever made it probably has a really
+                    messy home and severe ADHD. I want my &dollar;10 back</span
+                  >
+                </div>
+              </li>
+              <li class="reviewer-list-item">
+                <div class="reviewer-info">
+                  <div class="reviewer-image-box">
+                    <div class="aspect-padding reviewer">
+                      <img
+                        src="/images/films/hazmat.jpg"
+                        alt="Reviewer Avatar"
+                      />
+                    </div>
+                  </div>
+                  <div class="reviewer-name">
+                    <span>Hazmathias</span>
+                    <div class="review-tiny">
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i
+                        ><i class="fas fa-star-half-alt"></i
+                        ><i class="far fa-star"></i></span
+                      ><span class="date">November 1, 2020</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-comment">
+                  <span
+                    >This movie was complete trash. Or that's what I assume
+                    anyway, as I couldn't even watch the damn thing, as this
+                    site doesn't even have a video player. What is up with this
+                    website anyway? I've looked through the CSS and it's a
+                    complete dumpsterfire. Whoever made it probably has a really
+                    messy home and severe ADHD. I want my &dollar;10 back</span
+                  >
+                </div>
+              </li>
+              <li class="reviewer-list-item">
+                <div class="reviewer-info">
+                  <div class="reviewer-image-box">
+                    <div class="aspect-padding reviewer">
+                      <img
+                        src="/images/films/hazmat.jpg"
+                        alt="Reviewer Avatar"
+                      />
+                    </div>
+                  </div>
+                  <div class="reviewer-name">
+                    <span>Hazmathias</span>
+                    <div class="review-tiny">
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i
+                        ><i class="fas fa-star-half-alt"></i
+                        ><i class="far fa-star"></i></span
+                      ><span class="date">November 1, 2020</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-comment">
+                  <span
+                    >This movie was complete trash. Or that's what I assume
+                    anyway, as I couldn't even watch the damn thing, as this
+                    site doesn't even have a video player. What is up with this
+                    website anyway? I've looked through the CSS and it's a
+                    complete dumpsterfire. Whoever made it probably has a really
+                    messy home and severe ADHD. I want my &dollar;10 back</span
+                  >
+                </div>
+              </li>
+              <li class="reviewer-list-item">
+                <div class="reviewer-info">
+                  <div class="reviewer-image-box">
+                    <div class="aspect-padding reviewer">
+                      <img
+                        src="/images/films/hazmat.jpg"
+                        alt="Reviewer Avatar"
+                      />
+                    </div>
+                  </div>
+                  <div class="reviewer-name">
+                    <span>Hazmathias</span>
+                    <div class="review-tiny">
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i
+                        ><i class="fas fa-star-half-alt"></i
+                        ><i class="far fa-star"></i></span
+                      ><span class="date">November 1, 2020</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-comment">
+                  <span
+                    >This movie was complete trash. Or that's what I assume
+                    anyway, as I couldn't even watch the damn thing, as this
+                    site doesn't even have a video player. What is up with this
+                    website anyway? I've looked through the CSS and it's a
+                    complete dumpsterfire. Whoever made it probably has a really
+                    messy home and severe ADHD. I want my &dollar;10 back</span
+                  >
+                </div>
+              </li>
+              <li class="reviewer-list-item">
+                <div class="reviewer-info">
+                  <div class="reviewer-image-box">
+                    <div class="aspect-padding reviewer">
+                      <img
+                        src="/images/films/hazmat.jpg"
+                        alt="Reviewer Avatar"
+                      />
+                    </div>
+                  </div>
+                  <div class="reviewer-name">
+                    <span>Hazmathias</span>
+                    <div class="review-tiny">
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i
+                        ><i class="fas fa-star-half-alt"></i
+                        ><i class="far fa-star"></i></span
+                      ><span class="date">November 1, 2020</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-comment">
+                  <span
+                    >This movie was complete trash. Or that's what I assume
+                    anyway, as I couldn't even watch the damn thing, as this
+                    site doesn't even have a video player. What is up with this
+                    website anyway? I've looked through the CSS and it's a
+                    complete dumpsterfire. Whoever made it probably has a really
+                    messy home and severe ADHD. I want my &dollar;10 back</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </section>
+          <!--should construct textboxes, name, avatar in css grid and wrap with flexbox column-->
+        </div>
+      </main>
       <footer class="footer-container">
         <!---Footer divided into top, bottom, further divided into blocks/inline for each UL-->
         <div class="footer-bottom">

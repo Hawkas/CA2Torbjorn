@@ -853,13 +853,11 @@ footer .fab {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
 }
-
 .films-container {
   display: grid;
-  padding: 0;
-  grid-template-rows: 700px auto;
-  grid-template-columns: 100%;
-  grid-gap: min(15vh, 220px) 0;
+  grid-gap: 100px 0;
+  grid-template-rows: auto auto;
+  margin-bottom: 200px;
 }
 .showcase {
   grid-row: 1 / 2;
@@ -869,7 +867,7 @@ footer .fab {
   display: grid;
   grid-template-columns: [left]14px 16px [leftcenter] repeat(3, [center] 1fr) [rightcenter] 16px 14px[right];
   grid-template-rows: [top] 150px 175px 230px auto [bottom];
-  height: min(61vh, 658px);
+  height: 100%;
   box-shadow: 0 5px 6px var(--transblacker);
 }
 
@@ -972,7 +970,38 @@ footer .fab {
 .film-list {
   display: flex;
   flex-flow: column;
-  margin: 30px;
+  align-items: center;
+  margin: 0;
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.4);
+}
+.film-list .content-title {
+  padding: 100px 0 50px 0;
+  width: 100%;
+  background-color: var(--transblacker);
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.4);
+}
+.content-title h2 {
+  margin-left: 15px;
+}
+.film-list h2 span {
+  position: relative;
+  top: 3px; /* Just center aligning it to the text */
+  font-weight: 400;
+  transition: transform 0.5s ease-in;
+}
+
+.film-list h2 span::after {
+  transition: opacity 0.5s ease-in, font-weight 0.5s ease-in;
+  opacity: 0;
+  content: "  See all";
+  position: relative;
+  bottom: 3px; /* Adjusting to baseline */
+}
+.film-list h2:hover > span::after,
+.film-list h2:focus > span::after {
+  opacity: 1;
+  font-weight: 400;
+  visibility: visible;
 }
 .film-list > a {
   align-self: center;
@@ -980,19 +1009,20 @@ footer .fab {
 }
 
 .film-blocks {
+  margin: 0 15px;
   display: flex;
   flex-flow: row wrap;
   align-items: baseline;
-  align-content: space-;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .film-card {
-  width: min(83.333vw, 400px);
+  flex: 0 0 auto;
+  margin: 0 15px 30px 15px;
+  /* width: min(83.333vw, 400px); */
   height: min(40vw, 645px);
   min-height: 500px;
   overflow: hidden;
-  margin-bottom: 30px;
   background-color: var(--black);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
     -5px -5px 10px rgba(0, 0, 0, 0.25);
@@ -1000,6 +1030,15 @@ footer .fab {
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: [left]repeat(4, 1fr) [right];
 }
+.film-2,
+.film-3,
+.film-4 {
+  flex-basis: min(83.333vw, 400px);
+}
+.film-1 {
+  flex: 1 1 100%;
+}
+
 .film-imagebox {
   grid-area: 1 / left / 4 / right;
 }
@@ -1008,6 +1047,12 @@ footer .fab {
   object-position: 50% 100%;
   width: 100%;
   height: 100%;
+}
+.film-1 img {
+  object-position: 50% 20%;
+}
+.more-cats .film-1 img {
+  object-position: 60% 70%;
 }
 .film-overlay-grid {
   grid-area: 1 / left / 4 / right;
@@ -1030,7 +1075,7 @@ footer .fab {
 }
 
 .film-button {
-  background-color: rgba(20, 20, 20, 0.5);
+  background-color: rgba(20, 20, 20, 0.7);
   border-radius: 3px;
   box-shadow: 3px 3px 6px rgba(20, 20, 20, 0.5);
   padding: 15px 20px;
@@ -1053,7 +1098,7 @@ footer .fab {
 }
 .film-button:hover,
 .film-button:focus {
-  background-color: var(--transblacker);
+  background-color: rgba(20, 20, 20, 1);
 }
 .play:hover,
 .play:focus {
@@ -1119,16 +1164,70 @@ footer .fab {
 /* ------------------------------- */
 /*            FILMS END            */
 /* ------------------------------- */
+/* ------------------------------- */
+/*            CATEG                */
+/* ------------------------------- */
+.category-container {
+  display: grid;
+  margin-top: 75px;
+  justify-content: center;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  justify-items: center;
+}
+.categorytitle {
+  grid-area: 1 / 1 / 2 / 2;
+}
 
+.categorytitle h1 {
+  display: block;
+  text-align: center;
+  padding: 50px 0 50px;
+  background-color: var(--transblacker);
+  width: min(100vw, 2159px);
+  height: 100%;
+  box-shadow: 0 2px 25px rgba(255, 255, 255, 0.3);
+}
+.browseflex.categories {
+  box-shadow: 10px 10px 25px var(--transblacker);
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 100px;
+  max-width: 1260px;
+  margin: 150px 0;
+  background-color: var(--transblacker);
+  border-radius: 4px;
+}
+
+.film-list.categ-list {
+  margin: 0;
+}
+.film-list.categ-list h1 {
+  margin-left: 30px;
+  margin-top: 75px;
+}
+.film-list.categ-list .film-blocks {
+  margin-top: 75px;
+  margin-left: 15px;
+  justify-content: flex-start;
+}
+/* ------------------------------- */
+/*            CATEG END            */
+/* ------------------------------- */
 /* ------------------------------- */
 /*            SEARCH               */
 /* ------------------------------- */
-
-/*-------- MAIN --------*/
-/*-------- MAIN END-----*/
-
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
+.content-title.searchtitle,
+.account-container .content-title {
+  padding-bottom: 30px;
+  width: 100vw;
+  border-bottom: 2px solid var(--transwhite);
+}
+.content-title.searchtitle h1,
+.account-container .content-title {
+  margin-top: 0;
+  font-size: min(7vw, 3.5rem);
+}
 
 /* ------------------------------- */
 /*            SEARCH END           */
@@ -1138,11 +1237,173 @@ footer .fab {
 /*            ACCOUNT              */
 /* ------------------------------- */
 
-/*-------- MAIN --------*/
-/*-------- MAIN END-----*/
+.account-container {
+  background-color: var(--blacker);
+  display: grid;
+  width: min(100vw, 2159px);
+  height: 1000px;
+  margin-top: 75px;
+  grid-gap: 40px 0;
+  grid-template-rows: minmax(0, 1fr) 3fr;
+  grid-template-columns: max(48.646vw, 360px);
+  justify-items: center;
+  justify-content: center;
+  align-items: start;
+  align-content: start;
+  grid-template-areas:
+    "tabs"
+    "settings";
+}
+.account-topbar {
+  margin-top: 75px;
+  align-self: start;
+  grid-area: tabs;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  height: 300px;
+}
+.account-tab {
+  align-self: center;
+  background-color: var(--black);
+  height: 100px;
+  flex: 1 1 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
 
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
+.regular-tab {
+  border-bottom: 2px solid var(--red);
+}
+.filmmaker-tab {
+  border-bottom: 2px solid var(--blue);
+}
+.account-tab > * {
+  width: 100%;
+  height: auto;
+  padding: 30px;
+}
+.account-topbar a {
+  display: block;
+  font-size: min(5vw, 3.5rem);
+  flex: 1 1 auto;
+}
+.account-topbar h1 {
+  grid-area: tabs;
+  flex: 1 1 auto;
+  font-size: min(8vw, 5.5rem);
+}
+a.filmmaker-tab:hover,
+a.filmmaker-tab:focus,
+a.regular-tab:hover,
+a.regular-tab:focus {
+  background-color: white;
+  color: var(--blacker);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+}
+.account-tab a.active {
+  background-color: var(--transwhite);
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 3px 4px 5px 3px rgba(0, 0, 0, 0.7);
+}
+.regular-user {
+  grid-area: settings;
+  background-color: var(--black);
+  height: 100%;
+  max-height: 570px;
+  padding: min(10vw, 40px);
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0px 10px 20px rgba(43, 43, 42, 0.2);
+  border: 2px solid rgba(255, 49, 55, 0.14);
+}
+.film-user {
+  box-shadow: 0px 10px 20px rgba(43, 43, 42, 0.2);
+  border: 2px solid rgba(61, 164, 224, 0.14);
+}
+.signouts {
+  width: 150px;
+  padding: 15px;
+  align-self: flex-end;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.account-profile {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: baseline;
+}
+.account-profile h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  flex: 1 1 100%;
+  box-shadow: 0px 10px 20px rgba(43, 43, 42, 0.2);
+  border-bottom: 2px solid rgba(255, 49, 55, 0.14);
+}
+.account-profile.maker h2 {
+  box-shadow: 0px 10px 20px rgba(43, 43, 42, 0.2);
+  border-bottom: 2px solid rgba(61, 164, 224, 0.14);
+}
+.profile-list {
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 250px;
+}
+.profile-left {
+  flex: auto;
+  align-items: flex-start;
+  font-weight: 500;
+  font-size: min(4vw, 2.2rem);
+}
+.profile-right {
+  flex: auto;
+  align-items: flex-start;
+  font-weight: 300;
+  font-size: min(3.5vw, 1.8rem);
+}
+.profile-right > li {
+  background-color: transparent;
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.profile-right.maker li {
+  background-color: white;
+  border-radius: 4px;
+  color: var(--blacker);
+  white-space: nowrap;
+}
+.film-user ul {
+  width: min(30vw, 40%);
+}
+.film-user .profile-left li {
+  width: 60%;
+  border-bottom: 1px solid var(--transwhite);
+  white-space: normal;
+}
+.film-user .signouts {
+  border-radius: 4px;
+}
+.film-user .signouts > .fas.fa-upload {
+  margin-right: 20px;
+}
 
 /* ------------------------------- */
 /*            ACCOUNT END          */
@@ -1151,58 +1412,688 @@ footer .fab {
 /* ------------------------------- */
 /*            SIGNUP 4WHAT         */
 /* ------------------------------- */
+.fork-background {
+  display: grid;
+  margin-top: 75px;
+  height: 100%;
+  width: min(100vw, 2159px);
+  grid-template-rows: 150px auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "cinema";
+  grid-gap: 5px 0;
+}
 
-/*-------- MAIN --------*/
-/*-------- MAIN END-----*/
+.background-cinema {
+  height: min(100vw, 800px);
+  width: 100%;
+  background-image: url("../images/emptycinemagradient.jpg");
+  grid-area: cinema;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
 
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
+.fork-container {
+  grid-area: cinema;
+  align-self: start;
+  display: grid;
+  grid-template-rows: 100%;
+  height: 50%;
+  align-items: start;
+  justify-content: center;
+  align-content: start;
+}
+.forktitle {
+  grid-area: title;
+  display: block;
+  text-align: center;
+  padding: 50px 0 50px;
+  background-color: var(--transblacker);
+  width: min(100vw, 2159px);
+  height: 100%;
+  box-shadow: 0 2px 25px rgba(255, 255, 255, 0.3);
+}
+
+.forktitle h1 {
+  /* To override media queries */
+  font-size: min(6vw, 3.5rem);
+}
+.prompts-flex {
+  background-color: rgba(18, 18, 18, 0.3);
+  border-radius: 0 0 5px 5px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top: 0;
+  width: min(100vw, 560px);
+  height: 200px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-around; /* To prevent it from stretching mostly */
+}
+.redbutton.watcher,
+.redbutton.maker {
+  flex: 1 0 auto;
+  padding: 20px 10px;
+  width: 150px;
+  margin: 0 10px;
+}
+.bluebutton {
+  background-color: var(--blue);
+  box-shadow: 0 3px 0 #3da4e9bb;
+}
+.bluebutton:hover,
+.bluebutton.maker:focus {
+  background-color: white;
+  color: var(--blue);
+  text-shadow: 1px 1px 25px var(--transblacker);
+  border: 1px solid var(--blue);
+  box-shadow: 0 3px 0 #3da4e9bb;
+}
 
 /* ------------------------------- */
 /*            SIGNUP 4WHAT END     */
 /* ------------------------------- */
 
 /* ------------------------------- */
-/*            SIGNUP REG           */
+/*            SIGNUPS/LOGIN        */
 /* ------------------------------- */
 
-/*-------- MAIN --------*/
-/*-------- MAIN END-----*/
+.signup-container {
+  display: grid;
+  width: min(100vw, 2159px);
+  height: 1080px;
+  margin-top: 75px;
+  grid-template: [top]1fr[bottom] / [left]1fr[right];
+  justify-content: center;
+}
+.signup-background {
+  z-index: 0;
+  grid-area: top / left / bottom / right;
+  background-image: url(../images/emptycinemagradient.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(1px) grayscale(0.3);
+}
+.signup-container.film .signup-background {
+  background-image: url(../images/signupfilm.jpg);
+  filter: blur(0px) grayscale(0) brightness(0.7);
+}
+.form-grid-item {
+  margin-top: 100px;
+  height: 100%;
+  z-index: 1;
+  grid-area: top / left / bottom / right;
+  display: grid;
+  align-self: start;
+  justify-self: center;
+  justify-content: center;
+  align-content: start;
+}
+.form-flex {
+  display: flex;
+  height: 100%;
+  width: min(100vw, 414px);
+  padding: 20px 20px 40px;
+  border-radius: 3px;
+  flex-flow: column;
+  box-shadow: 0px 10px 20px rgba(43, 43, 42, 0.2);
+  border: 2px solid rgba(255, 49, 55, 0.14);
+  background-color: var(--black);
+}
+.signup-container.film .form-flex {
+  box-shadow: 0px 10px 20px rgba(43, 43, 42, 0.2);
+  border: 2px solid rgba(61, 164, 224, 0.14);
+}
+.textform {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  border: 0;
+}
+.textform > .input-wrap {
+  flex: 0 1 100px;
+}
+.textform > a {
+  padding-top: 13px;
+  text-align: center;
+  flex: 0 1 50px;
+  letter-spacing: 1.1px;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
 
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
+.textform > .form-checkbox {
+  flex: 0 1 24px;
+}
+.form-checkbox input {
+  transform: scale(
+    1.846
+  ); /* I wanted this to be a 24px square. I was too lazy to make a custom checkbox so this will look wonky when zoomed in/out. Only found out when it was too late so it is what it is */
+}
+.input-wrap {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
+.input-wrap > input {
+  flex: 0 1 48px;
+  border-radius: 3px;
+  font-family: var(--roboto);
+  font-weight: 500;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.6rem;
+  letter-spacing: 0.08px;
+  line-height: 2.5;
+  color: black;
+}
+
+.input-wrap > label {
+  flex: 0 1 24px;
+}
+.form-checkbox > label {
+  margin-left: 10px;
+}
+.form-flex h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: var(--roboto);
+  text-align: center;
+  padding-bottom: 10px;
+  height: 48px;
+  border-bottom: 2px solid rgba(255, 49, 55, 0.14);
+}
+.signup-container.film .form-flex h1 {
+  border-bottom: 2px solid rgba(61, 164, 224, 0.14);
+}
+.form-flex small {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+.form-flex label {
+  letter-spacing: 0.07px;
+  line-height: 2.2;
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+.form-flex small > a,
+.forgot-pw a {
+  color: var(--blue);
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+.form-flex small > a:hover,
+.forgot-pw a:hover,
+.form-flex small > a:focus,
+.forgot-pw a:focus {
+  text-decoration: underline;
+}
+/* ------------------------------- */
+/*           SIGNUP/LOGIN END      */
+/* ------------------------------- */
 
 /* ------------------------------- */
-/*            SIGNUP REG END       */
+/*           PURCHASE              */
+/* ------------------------------- */
+.purchase-main-grid {
+  display: grid;
+  width: min(100vw, 2159px);
+  grid-template-rows: auto;
+  justify-content: center;
+  justify-items: center;
+  background-color: var(--transblacker);
+}
+.details-container {
+  display: grid;
+  width: max(80vw, 360px);
+  max-width: 1214px;
+  height: 100%;
+  margin-top: 125px;
+  margin-bottom: 80px;
+  background-color: var(--black);
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.47);
+  grid-template-columns: 100%;
+  grid-template-rows: max-content 1fr 1fr 2fr;
+  grid-auto-flow: column;
+  overflow: hidden;
+}
+.purchase-top-block {
+  display: grid;
+  grid-template-rows: max-content [middle-start] 300px;
+  grid-template-columns: min(2.76vw, 53px) min(20.833vw, 400px) 1fr min(
+      2.76vw,
+      53px
+    );
+  justify-content: space-between;
+  align-items: baseline;
+  grid-gap: 30px 0;
+  grid-template-areas:
+    "img img text ."
+    ". list buy .";
+  margin-bottom: 50px;
+}
+
+.purchase-image-box {
+  grid-area: img;
+}
+.purchase-title-flex {
+  margin-top: min(3.49vw, 67px);
+  grid-area: text;
+  height: auto;
+  display: flex;
+  height: 70%;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: baseline;
+  align-items: center;
+}
+.user-reviews {
+  font-size: min(3vw, 1.8rem);
+  display: flex;
+  flex: 0 0 100px;
+  margin-left: auto;
+  flex-flow: column;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.synopsis {
+  margin-top: 100px;
+  grid-area: 2 / 2 / 3 / 4;
+  padding-bottom: 50px;
+  align-self: start;
+  border-bottom: 2px solid rgba(27, 27, 27, 0.5);
+}
+.listbutton {
+  grid-area: list;
+  align-self: start;
+  font-size: min(4vw, 2rem);
+  justify-self: start;
+  padding: 10px 25px;
+}
+.buybutton {
+  font-size: min(4vw, 2rem);
+  grid-area: buy;
+  align-self: start;
+  justify-self: end;
+  padding: 9px 17px;
+}
+
+/* Image boxes */
+.aspect-padding {
+  padding-top: calc(2330 / 2913 * 100%);
+  background: white;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.aspect-padding.reviewer {
+  padding-bottom: calc(2400 / 1600 * 100%);
+}
+.details-container img {
+  position: absolute;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.purchase-image-box {
+  width: max(20.833vw, 150px);
+  max-width: 400px;
+  height: calc((100vw / 2 - 30px) * 1.2502);
+  max-height: min(
+    26.042vw,
+    500px
+  ); /* To make the box actually cover the image as it scales. It won't count the ar box as proper content so I'm manually scaling it with calc based on the aspect ratio. Found this solution on stackoverflow */
+}
+.reviewer-image-box {
+  width: calc((100vw / 2 - 30px) * 0.66);
+  max-width: 50px;
+  height: calc((100vw / 2 - 30px) * 1.5);
+  max-height: 70px;
+}
+/* Image boxes end */
+.details-container h1 {
+  flex: 2 0 100%;
+  margin-bottom: 30px;
+  white-space: nowrap;
+  font-size: min(6vw, 5.5rem);
+}
+.details-container p {
+  font-size: min(3.7vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.9;
+}
+.purchase-title-flex > a {
+  white-space: nowrap;
+  margin-right: auto;
+  flex: 1 1 100%;
+  align-self: flex-start;
+  font-weight: 500;
+  color: var(--blue);
+  font-size: min(4vw, 1.8rem);
+}
+.purchase-title-flex > a:hover,
+.purchase-title-flex > a:focus {
+  text-decoration: underline;
+}
+.year-duration {
+  align-self: baseline;
+  flex: 0 1 auto;
+  margin-right: auto;
+  font-weight: 300;
+  font-size: min(3.5vw, 1.6rem);
+  display: flex;
+  flex-flow: column;
+}
+.purchase-cast-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: baseline;
+  align-items: baseline;
+  margin: 50px min(2.76vw, 53px);
+  border-bottom: 2px solid rgba(27, 27, 27, 0.5);
+}
+.actors,
+.director {
+  display: flex;
+  flex-flow: column wrap;
+  flex-basis: 50%;
+}
+.details-container h2 {
+  flex: 0 1 100%;
+  align-self: stretch;
+  margin-right: auto;
+  margin-bottom: min(10vw, 50px);
+  font-size: min(10vw, 3.5rem);
+}
+.actors h3,
+.director h3 {
+  font-size: min(6vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  line-height: 2.2;
+  margin-bottom: 27px;
+}
+.purchase-cast-block span {
+  font-weight: 300;
+  font-size: min(4vw, 2rem);
+  opacity: 0.8;
+}
+.purchase-review-block {
+  margin: 0 min(2.76vw, 53px) 50px;
+  height: 400px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  border-bottom: 2px solid rgba(27, 27, 27, 0.5);
+}
+
+.purchase-review-block h2 {
+  align-self: flex-start;
+  flex: 1 1 100%;
+  margin-right: auto;
+  margin-bottom: min(10vw, 50px);
+  font-size: min(10vw, 3.5rem);
+}
+.review-statistic-left {
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  font-size: min(5vw, 3rem);
+}
+.review-statistic-left > span {
+  font-size: min(10vw, 5.5rem);
+}
+
+.review-bar-flex {
+  align-self: flex-start;
+  flex: 0 0 60%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.review-bar {
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 0 1 24px;
+  width: 60%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+.review-bar span {
+  font-weight: 300;
+  height: 27px;
+}
+.bar-border {
+  background-color: white;
+  flex: 1 1 433px;
+  margin-left: 10px;
+  height: 20px;
+  width: 100%;
+  max-width: 433px;
+  box-shadow: inset 5px 3px 5px 3px rgba(0, 0, 0, 0.6);
+}
+.bar-fill {
+  flex: 1 1 100%;
+  height: 20px;
+  background-color: var(--blue);
+}
+.fill-1 {
+  width: 10%;
+}
+.fill-2 {
+  width: 30%;
+}
+.fill-3 {
+  width: 60%;
+}
+.fill-4 {
+  width: 50%;
+}
+.fill-5 {
+  width: 40%;
+}
+.transbutton.write {
+  margin: 40px auto 20px;
+  padding: 10px 26px;
+  flex: 0 1 auto;
+  max-height: 47px;
+  align-self: baseline;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: min(5vw, 2.5rem);
+}
+.transbutton.write .fas.fa-edit {
+  margin-right: 10px;
+  align-self: baseline;
+}
+.review-comment-block {
+  margin: 0 min(2.76vw, 53px) 50px;
+}
+.review-list-block {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.reviewer-list-item {
+  display: grid;
+  padding-bottom: 30px;
+  margin-bottom: 31px;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 57px 1fr;
+  grid-row-gap: 4px;
+  grid-template-areas:
+    "name name"
+    ". reviews";
+  border: 2px solid rgba(27, 27, 27, 0.5);
+  border-top: 0;
+  border-left: 0;
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+.reviewer-info {
+  grid-area: name;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.reviewer-image-box {
+  flex: 1 1 100%;
+  margin-top: 4px;
+  margin-right: 6px;
+  overflow: hidden;
+}
+.reviewer-name {
+  align-self: flex-end;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-end;
+}
+.review-tiny {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+.reviewer-name > span {
+  flex: 1 1 100%;
+}
+.review-tiny .rating-stars,
+.review-tiny .date {
+  align-self: flex-end;
+  margin-top: 8px;
+  margin-right: 10px;
+  opacity: 0.7;
+}
+.review-comment {
+  font-size: min(3.5vw, 1.6rem);
+  grid-area: reviews;
+}
+.thanks-container {
+  display: grid;
+  margin-top: 150px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+section.thanks img {
+  object-position: top center;
+  height: min(80vw, 400px);
+}
+
+@media only screen and (min-width: 768px) {
+  .year-duration {
+    flex: 0 1 auto;
+    flex-flow: row;
+    order: 3;
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+  .year-duration > span:nth-child(2) {
+    margin-left: 20px;
+  }
+  .purchase-title-flex {
+    height: 100%;
+    flex-flow: column-reverse wrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: space-between;
+    padding-bottom: 100px;
+  }
+  .purchase-title-flex h1 {
+    align-self: stretch;
+    order: 4;
+    margin-right: auto;
+    flex: 1 0 0px;
+    margin-bottom: 0;
+  }
+  .purchase-title-flex a {
+    flex: 1 1 auto;
+    margin-right: 0;
+    order: 2;
+  }
+  .user-reviews {
+    align-self: flex-end;
+    justify-content: center;
+    order: 6;
+    flex: 1 1 100%;
+  }
+  .purchase-review-block {
+    align-items: center;
+    align-content: flex-start;
+  }
+  .transbutton.write {
+    margin-left: auto;
+    align-self: flex-end;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .purchase-top-block {
+    grid-template-rows: max-content [middle-start] auto;
+    grid-gap: 10px 0;
+    grid-template-areas:
+      "img img text ."
+      ". desc desc .";
+    margin-bottom: 0;
+  }
+  .synopsis {
+    margin-top: 30px;
+    grid-area: desc;
+    align-self: start;
+  }
+
+  .listbutton {
+    grid-area: text;
+    align-self: end;
+    font-size: min(4vw, 2rem);
+    justify-self: start;
+    padding: 10px 25px;
+  }
+  .buybutton {
+    font-size: min(4vw, 2rem);
+    grid-area: text;
+    align-self: end;
+    justify-self: end;
+    padding: 9px 17px;
+  }
+  .transbutton.write {
+    align-self: center;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .purchase-review-block {
+    align-content: flex-start;
+  }
+  .review-bar-flex {
+    align-self: flex-end;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+  }
+}
+/* ------------------------------- */
+/*           PURCHASE END          */
 /* ------------------------------- */
 
-/* ------------------------------- */
-/*            SIGNUP FILM          */
-/* ------------------------------- */
-
-/*-------- MAIN --------*/
-/*-------- MAIN END-----*/
-
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
-
-/* ------------------------------- */
-/*            SIGNUP FILM END      */
-/* ------------------------------- */
-
-/* ------------------------------- */
-/*            LOGIN                */
-/* ------------------------------- */
-
-/*-------- MAIN --------*/
-/*-------- MAIN END-----*/
-
-/*-------- ASIDE --------*/
-/*-------- ASIDE END-----*/
-
-/* ------------------------------- */
-/*            LOGIN END            */
-/* ------------------------------- */
 /* To prevent account menu from staying open if screen size is changed */
 @media only screen and (max-width: 499px) {
   #dropdown-menu:not(:checked) ~ ul.accountnav {
@@ -1289,7 +2180,10 @@ footer .fab {
   /*-------- LOGIN END-----*/
 
   /*-------- ACCOUNT --------*/
+
   /*-------- ACCOUNT END-----*/
+  /*--------PURCHASE---------*/
+  /*--------PURCHASE END-----*/
 }
 /* ------------------------------- */
 /*  MEDIA QUERIES LANDSCAPE END    */
@@ -1528,6 +2422,8 @@ footer .fab {
 
   /*-------- ACCOUNT --------*/
   /*-------- ACCOUNT END-----*/
+  /*--------PURCHASE---------*/
+  /*--------PURCHASE END-----*/
 }
 /* ------------------------------- */
 /*      MEDIA QUERIES 768px END    */
@@ -1675,6 +2571,9 @@ footer .fab {
 
   /*-------- ACCOUNT --------*/
   /*-------- ACCOUNT END-----*/
+
+  /*--------PURCHASE---------*/
+  /*--------PURCHASE END-----*/
 }
 /* ------------------------------- */
 /*    MEDIA QUERIES 1024px END     */
@@ -1744,6 +2643,12 @@ footer .fab {
   /*-------- HOME END-----*/
 
   /*-------- FILMS --------*/
+  .films-2,
+  .films-3,
+  .films-4 {
+    margin-left: auto;
+    margin-right: auto;
+  }
   /*-------- FILMS END-----*/
 
   /*-------- SEARCH --------*/
@@ -1757,7 +2662,11 @@ footer .fab {
 
   /*-------- ACCOUNT --------*/
   /*-------- ACCOUNT END-----*/
+
+  /*--------PURCHASE---------*/
+  /*--------PURCHASE END-----*/
 }
 /*--------------------------------*/
 /*   MEDIA QUERIES DESKTOP END    */
 /*--------------------------------*/
+/* Stupid minor breakpoint adjustments */
